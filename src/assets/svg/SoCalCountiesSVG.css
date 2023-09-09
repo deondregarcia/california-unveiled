@@ -1,3 +1,7 @@
+.counties-svg {
+    overflow: visible;
+  }
+
 /* kern county */
 .kern-yes-hover {
     transform: translate(2.052px, -107.678px);

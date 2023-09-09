@@ -3,18 +3,58 @@ import { SVGProps } from "react";
 
 import "./SoCalCountiesSVG.css";
 
-const SoCalCountiesSVG = (props: SVGProps<SVGSVGElement>) => {
-  const [kernHover, setKernHover] = useState(false);
-  const [sanLuisHover, setSanLuisHover] = useState(false);
-  const [sanBarHover, setSanBarHover] = useState(false); // santa barbara
-  const [venHover, setVenHover] = useState(false); // Ventura
-  const [losAngHover, setLosAngHover] = useState(false); // Los Angeles
-  const [sanBernHover, setSanBernHover] = useState(false); // San Bernardino
-  const [riverHover, setRiverHover] = useState(false); // Riverside
-  const [orangeHover, setOrangeHover] = useState(false); // Orange
-  const [imperialHover, setImperialHover] = useState(false); // Imperial
-  const [sanDiegoHover, setSanDiegoHover] = useState(false); // San Diego
+// import images
+import Kern from "../images/Kern/LavaTubeTrail.jpg";
+import BAPS from "../images/SanBernardino/BAPS.jpg";
+import { ImageDir } from "../images/ImageDirectory";
 
+const SoCalCountiesSVG = ({
+  // props,
+  kernHover,
+  setKernHover,
+  sanLuisHover,
+  setSanLuisHover,
+  sanBarHover,
+  setSanBarHover,
+  venHover,
+  setVenHover,
+  losAngHover,
+  setLosAngHover,
+  sanBernHover,
+  setSanBernHover,
+  riverHover,
+  setRiverHover,
+  orangeHover,
+  setOrangeHover,
+  imperialHover,
+  setImperialHover,
+  sanDiegoHover,
+  setSanDiegoHover,
+  kernIndex,
+}: {
+  // props: SVGProps<SVGSVGElement>;
+  kernHover: boolean;
+  setKernHover: React.Dispatch<React.SetStateAction<boolean>>;
+  sanLuisHover: boolean;
+  setSanLuisHover: React.Dispatch<React.SetStateAction<boolean>>;
+  sanBarHover: boolean;
+  setSanBarHover: React.Dispatch<React.SetStateAction<boolean>>;
+  venHover: boolean;
+  setVenHover: React.Dispatch<React.SetStateAction<boolean>>;
+  losAngHover: boolean;
+  setLosAngHover: React.Dispatch<React.SetStateAction<boolean>>;
+  sanBernHover: boolean;
+  setSanBernHover: React.Dispatch<React.SetStateAction<boolean>>;
+  riverHover: boolean;
+  setRiverHover: React.Dispatch<React.SetStateAction<boolean>>;
+  orangeHover: boolean;
+  setOrangeHover: React.Dispatch<React.SetStateAction<boolean>>;
+  imperialHover: boolean;
+  setImperialHover: React.Dispatch<React.SetStateAction<boolean>>;
+  sanDiegoHover: boolean;
+  setSanDiegoHover: React.Dispatch<React.SetStateAction<boolean>>;
+  kernIndex: number;
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,8 +62,25 @@ const SoCalCountiesSVG = (props: SVGProps<SVGSVGElement>) => {
       width={806.368}
       height={372.983}
       viewBox="0 0 213.352 98.685"
-      {...props}
+      className="counties-svg"
+      // {...props}
     >
+      {/* images must be defined as pattern tags, then used in 'fill' as url(#id) */}
+      <defs>
+        <pattern id="kern-image" width={1} height={1}>
+          <image
+            href={ImageDir.Kern[kernIndex]}
+            x="0"
+            y="-50%"
+            width={90}
+            height={120}
+          />
+        </pattern>
+        <pattern id="sanBern-image" width={1} height={1}>
+          <image href={BAPS} x="0" y="-25%" width={120} height={90} />
+        </pattern>
+      </defs>
+
       {/* Kern County */}
       <path
         className={kernHover ? "kern-yes-hover" : "kern-no-hover"}
@@ -47,7 +104,7 @@ const SoCalCountiesSVG = (props: SVGProps<SVGSVGElement>) => {
         onMouseLeave={() => setKernHover(false)}
         d="M53.74 124.77v-5.261h-2.662l.186-2.723-3.59.247v-2.29h-3.961v-2.847h-1.919v-2.228h-3.466l-2.537-2.538v-2.661h-3.343v-5.261h74.057v1.464s-1.733 1.485-.061 1.609c1.67.124.68 1.733.68 1.733v22.59H71.536s-.557.93-1.114.93h-1.98v-.558h-8.17v-1.3h-.805v-.371h-3.342v-.619z"
         style={{
-          fill: "#fff",
+          fill: "url(#kern-image)",
           fillOpacity: 1,
           stroke: "#000",
           strokeWidth: ".350119px",
@@ -209,7 +266,7 @@ const SoCalCountiesSVG = (props: SVGProps<SVGSVGElement>) => {
         onMouseLeave={() => setSanBernHover(false)}
         d="M176.882 145.028v3.02h-46.96c-1.05 0-1.126 1.122-1.126 1.122s-7.675.371-7.737-.093c-.062-.464-.96-.31-2.692-.279-1.733.031-1.88-.27-1.88-.27h-4.858v1.182l-1.663.7v1.226h-1.313v.92l-1.023.945c-1.082-.805-4.424-2.507-4.424-2.507s.18-.64-.144-.857c-.325-.217-.247-.667.366-.952.613-.284.57-1.138.963-.788.394.35.613-.197.613-.197l1.816-5.273s.394-.394.306-1.007c-.087-.613-.372-1.707-.415-3.807-.044-2.101.196-2.408-.416-2.408-.613 0-.657-.043-.657-.875v-8.271l1.342-.011.034-22.6s.99-1.61-.68-1.734c-1.672-.124.061-1.61.061-1.61v-1.463h53.468l.434-1.288h3.807l29.399 20.393s.847.435.54 1.792c-.306 1.356-.306 1.575.35 1.882.657.306.92.393.92.919 0 .525 1.313 2.844 2.757 3.107 1.444.262 1.532.525 1.488 1.094-.044.569 1.269 1.313 1.05 2.32-.219 1.006 1.62.919 1.707 2.013.087 1.094.263 1.138-.088 2.1-.35.963 2.364-.393 2.583.394.218.788 1.488.526 1.4 1.313-.087.788 1.138.57 1.138.57s1.4-.613 1.576.568c.175 1.182.48.875.48.875s1.401.92.22 1.664c-1.182.744-.482 1.838-1.094 2.275-.43.308-1.663-.394-2.101.744-.438 1.138-1.663 1.75-2.407 1.663-.744-.087-1.329 1.29-1.617 1.292z"
         style={{
-          fill: "#fff",
+          fill: "url(#sanBern-image)",
           stroke: "#000",
           strokeWidth: ".350119px",
           strokeLinecap: "butt",
