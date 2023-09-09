@@ -1,13 +1,21 @@
-.landing {
+/* .landing {
     margin: 100px 100px;
     position: fixed;
-  }
+  } */
 
   .map-container {
     width: 1000px;
     height: 600px;
     /* background-color: red; */
     overflow: visible;
+    
   }
 
+  @media screen and (max-width: 500px) {
+    .map-container {
+        width: 400px;
+        height: 300px;
+        margin: auto;
+    }
+  }
 

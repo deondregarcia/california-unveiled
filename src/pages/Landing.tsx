@@ -3,16 +3,8 @@ import SoCalCountiesSVG from "../assets/svg/SoCalCountiesSVG";
 import "./Landing.css";
 
 const Landing = () => {
-  const [kernHover, setKernHover] = useState(false);
-  const [sanLuisHover, setSanLuisHover] = useState(false);
-  const [sanBarHover, setSanBarHover] = useState(false); // santa barbara
-  const [venHover, setVenHover] = useState(false); // Ventura
-  const [losAngHover, setLosAngHover] = useState(false); // Los Angeles
-  const [sanBernHover, setSanBernHover] = useState(false); // San Bernardino
-  const [riverHover, setRiverHover] = useState(false); // Riverside
-  const [orangeHover, setOrangeHover] = useState(false); // Orange
-  const [imperialHover, setImperialHover] = useState(false); // Imperial
-  const [sanDiegoHover, setSanDiegoHover] = useState(false); // San Diego
+  // each of 10 counties will correspond to 0-9, while 10 means none are hovered
+  const [hoverIndex, setHoverIndex] = useState("10");
 
   const [indexCounter, setIndexCounter] = useState(0);
 
@@ -28,26 +20,8 @@ const Landing = () => {
     <div className="landing">
       <div className="map-container">
         <SoCalCountiesSVG
-          kernHover={kernHover}
-          setKernHover={setKernHover}
-          sanLuisHover={sanLuisHover}
-          setSanLuisHover={setSanLuisHover}
-          sanBarHover={sanBarHover}
-          setSanBarHover={setSanBarHover}
-          venHover={venHover}
-          setVenHover={setVenHover}
-          losAngHover={losAngHover}
-          setLosAngHover={setLosAngHover}
-          sanBernHover={sanBernHover}
-          setSanBernHover={setSanBernHover}
-          riverHover={riverHover}
-          setRiverHover={setRiverHover}
-          orangeHover={orangeHover}
-          setOrangeHover={setOrangeHover}
-          imperialHover={imperialHover}
-          setImperialHover={setImperialHover}
-          sanDiegoHover={sanDiegoHover}
-          setSanDiegoHover={setSanDiegoHover}
+          hoverIndex={hoverIndex}
+          setHoverIndex={setHoverIndex}
           indexCounter={indexCounter}
         />
       </div>
