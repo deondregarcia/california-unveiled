@@ -1,8 +1,13 @@
-/* .landing {
-    margin: 100px 100px;
-    position: fixed;
-  } */
+.landing {
+    margin-top: 50px;
+}
 
+  .landing > h1 {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 50px;
+    text-align: center;
+    color: #daa520;
+  }
   .map-container {
     width: 1000px;
     height: 600px;
@@ -14,7 +19,7 @@
   @media screen and (max-width: 500px) {
     .map-container {
         width: 400px;
-        height: 300px;
+        height: 250px;
         margin: auto;
     }
   }

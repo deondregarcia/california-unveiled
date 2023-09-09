@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SoCalCountiesSVG from "../assets/svg/SoCalCountiesSVG";
+import CountyOverview from "../components/CountyOverview/CountyOverview";
 import "./Landing.css";
 
 const Landing = () => {
@@ -18,6 +19,7 @@ const Landing = () => {
 
   return (
     <div className="landing">
+      <h1>SoCal Unveiled</h1>
       <div className="map-container">
         <SoCalCountiesSVG
           hoverIndex={hoverIndex}
@@ -25,7 +27,7 @@ const Landing = () => {
           indexCounter={indexCounter}
         />
       </div>
-      <p>{indexCounter}</p>
+      <CountyOverview hoverIndex={hoverIndex} />
     </div>
   );
 };

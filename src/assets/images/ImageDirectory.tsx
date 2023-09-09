@@ -30,17 +30,21 @@ import SanDiego1 from "./SanDiego/HarpersTopiaryGarden.jpg";
 import SanDiego2 from "./SanDiego/ScrippsCoastalMeander.jpg";
 
 interface ImageDirType {
-  Kern: any[];
-  SanLuis: any[];
-  SanBar: any[];
-  Ven: any[];
-  LosAng: any[];
-  SanBern: any[];
-  River: any[];
-  Orange: any[];
-  Imperial: any[];
-  SanDiego: any[];
+  [key: string]: any[];
 }
+
+// interface ImageDirType {
+//   Kern: any[];
+//   SanLuis: any[];
+//   SanBar: any[];
+//   Ven: any[];
+//   LosAng: any[];
+//   SanBern: any[];
+//   River: any[];
+//   Orange: any[];
+//   Imperial: any[];
+//   SanDiego: any[];
+// }
 
 export const ImageDir: ImageDirType = {
   Kern: [Kern0, Kern1, Kern2],
