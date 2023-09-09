@@ -1,0 +1,109 @@
+/* kern county */
+.kern-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.kern-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* San Luis Obispo */
+.sanLuis-yes-hover {
+    transform: translate(3.221px, -99.914px);
+    transition: transform 200ms ease-in-out;
+}
+
+.sanLuis-no-hover {
+    transform: translate(3.221px, -89.914px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* santa barbara */
+.sanBar-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.sanBar-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Ventura */
+.ven-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.ven-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Los Angeles */
+.losAng-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.losAng-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* San Bernardino */
+.sanBern-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.sanBern-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Riverside */
+.river-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.river-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Orange */
+.orange-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.orange-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Imperial */
+.imperial-yes-hover {
+    transform: translate(-5.19px, -107.149px);
+    transition: transform 200ms ease-in-out;
+}
+
+.imperial-no-hover {
+    transform: translate(-5.19px, -97.149px);
+    transition: transform 200ms ease-in-out;
+}
+
+/* San Diego */
+.sanDiego-yes-hover {
+    transform: translate(2.052px, -107.678px);
+    transition: transform 200ms ease-in-out;
+}
+
+.sanDiego-no-hover {
+    transform: translate(2.052px, -97.678px);
+    transition: transform 200ms ease-in-out;
+}
