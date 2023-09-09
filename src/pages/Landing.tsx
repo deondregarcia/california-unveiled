@@ -14,42 +14,44 @@ const Landing = () => {
   const [imperialHover, setImperialHover] = useState(false); // Imperial
   const [sanDiegoHover, setSanDiegoHover] = useState(false); // San Diego
 
-  const [kernIndex, setKernIndex] = useState(0);
+  const [indexCounter, setIndexCounter] = useState(0);
 
   useEffect(() => {
     let timer = setTimeout(() => {
-      setKernIndex((prevState) => (prevState + 1) % 3);
+      setIndexCounter((prevState) => (prevState + 1) % 30);
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [kernIndex]);
+  }, [indexCounter]);
 
   return (
     <div className="landing">
-      <SoCalCountiesSVG
-        kernHover={kernHover}
-        setKernHover={setKernHover}
-        sanLuisHover={sanLuisHover}
-        setSanLuisHover={setSanLuisHover}
-        sanBarHover={sanBarHover}
-        setSanBarHover={setSanBarHover}
-        venHover={venHover}
-        setVenHover={setVenHover}
-        losAngHover={losAngHover}
-        setLosAngHover={setLosAngHover}
-        sanBernHover={sanBernHover}
-        setSanBernHover={setSanBernHover}
-        riverHover={riverHover}
-        setRiverHover={setRiverHover}
-        orangeHover={orangeHover}
-        setOrangeHover={setOrangeHover}
-        imperialHover={imperialHover}
-        setImperialHover={setImperialHover}
-        sanDiegoHover={sanDiegoHover}
-        setSanDiegoHover={setSanDiegoHover}
-        kernIndex={kernIndex}
-      />
-      <p>{kernIndex}</p>
+      <div className="map-container">
+        <SoCalCountiesSVG
+          kernHover={kernHover}
+          setKernHover={setKernHover}
+          sanLuisHover={sanLuisHover}
+          setSanLuisHover={setSanLuisHover}
+          sanBarHover={sanBarHover}
+          setSanBarHover={setSanBarHover}
+          venHover={venHover}
+          setVenHover={setVenHover}
+          losAngHover={losAngHover}
+          setLosAngHover={setLosAngHover}
+          sanBernHover={sanBernHover}
+          setSanBernHover={setSanBernHover}
+          riverHover={riverHover}
+          setRiverHover={setRiverHover}
+          orangeHover={orangeHover}
+          setOrangeHover={setOrangeHover}
+          imperialHover={imperialHover}
+          setImperialHover={setImperialHover}
+          sanDiegoHover={sanDiegoHover}
+          setSanDiegoHover={setSanDiegoHover}
+          indexCounter={indexCounter}
+        />
+      </div>
+      <p>{indexCounter}</p>
     </div>
   );
 };

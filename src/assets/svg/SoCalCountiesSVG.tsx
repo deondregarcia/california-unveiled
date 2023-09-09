@@ -30,7 +30,7 @@ const SoCalCountiesSVG = ({
   setImperialHover,
   sanDiegoHover,
   setSanDiegoHover,
-  kernIndex,
+  indexCounter,
 }: {
   // props: SVGProps<SVGSVGElement>;
   kernHover: boolean;
@@ -53,14 +53,36 @@ const SoCalCountiesSVG = ({
   setImperialHover: React.Dispatch<React.SetStateAction<boolean>>;
   sanDiegoHover: boolean;
   setSanDiegoHover: React.Dispatch<React.SetStateAction<boolean>>;
-  kernIndex: number;
+  indexCounter: number;
 }) => {
+  const calcIndex = (countyID: number) => {
+    const modVal = indexCounter - (indexCounter % 10) + countyID;
+    let modValFirstDigit = 0;
+
+    if (modVal < 10) {
+      modValFirstDigit = 0;
+    } else if (10 < modVal && modVal < 20) {
+      modValFirstDigit = 1;
+    } else {
+      modValFirstDigit = 2;
+    }
+
+    if (indexCounter >= modVal) {
+      return (modValFirstDigit + 1) % 3;
+    } else {
+      return modValFirstDigit;
+    }
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
-      width={806.368}
-      height={372.983}
+      width="100%"
+      height="100%"
+      // original width/height vals below, keeping just in case
+      // width={806.368}
+      // height={372.983}
       viewBox="0 0 213.352 98.685"
       className="counties-svg"
       // {...props}
@@ -69,15 +91,93 @@ const SoCalCountiesSVG = ({
       <defs>
         <pattern id="kern-image" width={1} height={1}>
           <image
-            href={ImageDir.Kern[kernIndex]}
+            href={ImageDir.Kern[calcIndex(0)]}
             x="0"
-            y="-50%"
-            width={90}
-            height={120}
+            y="-25%"
+            width={80}
+            height={70}
           />
         </pattern>
-        <pattern id="sanBern-image" width={1} height={1}>
-          <image href={BAPS} x="0" y="-25%" width={120} height={90} />
+        <pattern id="SanLuis-image" width={1} height={1}>
+          <image
+            href={ImageDir.SanLuis[calcIndex(1)]}
+            x="0"
+            y="-15%"
+            width={55}
+            height={55}
+          />
+        </pattern>
+        <pattern id="SanBar-image" width={1} height={1}>
+          <image
+            href={ImageDir.SanBar[calcIndex(2)]}
+            x="0"
+            y="-20%"
+            width={60}
+            height={60}
+          />
+        </pattern>
+        <pattern id="Ven-image" width={1} height={1}>
+          <image
+            href={ImageDir.Ven[calcIndex(3)]}
+            x="-9%"
+            y="-9%"
+            width={45}
+            height={45}
+          />
+        </pattern>
+        <pattern id="LosAng-image" width={1} height={1}>
+          <image
+            href={ImageDir.LosAng[calcIndex(5)]}
+            x="0"
+            y="-15%"
+            width={58}
+            height={63}
+          />
+        </pattern>
+        <pattern id="SanBern-image" width={1} height={1}>
+          <image
+            href={ImageDir.SanBern[calcIndex(9)]}
+            x="-5%"
+            y="-40%"
+            width={130}
+            height={130}
+          />
+        </pattern>
+        <pattern id="River-image" width={1} height={1}>
+          <image
+            href={ImageDir.River[calcIndex(8)]}
+            x="0"
+            y="-15%"
+            width={95}
+            height={70}
+          />
+        </pattern>
+        <pattern id="Orange-image" width={1} height={1}>
+          <image
+            href={ImageDir.Orange[calcIndex(4)]}
+            x="-4%"
+            y="-9%"
+            width={30}
+            height={30}
+          />
+        </pattern>
+        <pattern id="Imperial-image" width={1} height={1}>
+          <image
+            href={ImageDir.Imperial[calcIndex(6)]}
+            x="0"
+            y="-15%"
+            width={50}
+            height={50}
+          />
+        </pattern>
+        <pattern id="SanDiego-image" width={1} height={1}>
+          <image
+            href={ImageDir.SanDiego[calcIndex(7)]}
+            x="0"
+            y="-10%"
+            width={50}
+            height={50}
+          />
         </pattern>
       </defs>
 
@@ -107,7 +207,7 @@ const SoCalCountiesSVG = ({
           fill: "url(#kern-image)",
           fillOpacity: 1,
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -137,10 +237,10 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setSanLuisHover(false)}
         d="M53.46 116.999c-2.582.481-3.676-.131-3.72-.7-.043-.57-.131-.57-.962-.526-.832.044-.963-.175-.963-.175s.481-.656-2.845-.569c-3.326.088-3.239-.919-3.239-.919.044-1.969-2.538-1.181-2.538-1.181s.088-.482-1.4-.613-2.67-1.27-3.327-1.444c-.656-.175-2.626 1.663-2.844 2.1-.22.438.656.57-2.495.7-3.151.132-.875 1.401-.7 2.277.175.875-1.4 2.1-.963 1.05.438-1.05-4.201-3.37-4.683-2.538-.481.831-4.158.875-4.551.744 0 0 1.166-4.354-.258-4.787-1.424-.434-1.857-2.228-2.909-.929-1.052 1.3-1.114.557-2.166-.31-1.052-.866-1.548-1.546-1.548-1.546s-1.361-.743-.804-1.238c.557-.495 1.485-4.518.124-4.147-1.362.371-2.847-.31-4.085-1.733-1.238-1.424-2.662-3.528-2.662-3.528s.124-1.3-1.795-.928C.21 96.429-.782 94.82-.782 94.82s-.618-.557-.433-1.795c.186-1.238-1.423-1.61-1.423-1.61H31.34v5.261h3.342v2.662l2.538 2.538h3.466v2.228h1.918v2.847h3.962v2.29l3.59-.248-.186 2.723h2.661v5.261"
         style={{
-          fill: "#fff",
+          fill: "url(#SanLuis-image)",
           fillOpacity: 1,
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -169,9 +269,9 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setSanBarHover(false)}
         d="M54.626 124.75v12.999l-.613.437.7.525-.963 1.05s-2.144.045-2.494-1.006c-.35-1.05-4.377-.612-4.333 0 .044.613-1.576 1.007-1.97 0-.393-1.006-1.312-.656-1.444-.087-.131.569-2.494.919-2.45 0 .043-.92-5.821-2.407-9.585-1.62-3.764.788-6.784 1.532-7.134.963-.35-.569-1.62-4.157-4.814-3.282-3.195.875 2.013-3.282 1.05-4.42-.962-1.138-1.488-.92-.175-3.151 1.313-2.232-1.531-2.67-1.531-2.67s.13-1.663.525-1.532c.394.131 4.07.088 4.551-.744.482-.831 5.12 1.488 4.683 2.539-.437 1.05 1.138-.176.963-1.05-.175-.876-2.45-2.145.7-2.277 3.151-.13 2.276-.262 2.495-.7.219-.438 2.188-2.276 2.845-2.1.656.174 1.838 1.312 3.326 1.444 1.488.13 1.4.612 1.4.612s2.582-.787 2.539 1.182c0 0-.088 1.007 3.238.919 3.326-.087 2.845.569 2.845.569s.131.219.963.175c.831-.044.919-.044.963.525.043.57 1.137 1.182 3.72.7z"
         style={{
-          fill: "#fff",
+          fill: "url(#SanBar-image)",
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -201,10 +301,10 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setVenHover(false)}
         d="m53.74 139.755.963-1.05-.7-.526.612-.438.013-13.003 1.566-.089v.62h3.342v.37h.804v1.3h8.17v.557h1.98l7.812 14.06v1.707h-1.094v1.838h-2.932l-4.245 3.37v.788s-2.932-.263-4.158-1.094c-1.225-.832-2.057-.438-2.057-.438s-.963-.044-1.75-.744c-.788-.7-3.72-2.057-3.37-3.326.35-1.27-4.956-3.902-4.956-3.902z"
         style={{
-          fill: "#fff",
+          fill: "url(#Ven-image)",
           fillOpacity: 1,
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -234,10 +334,10 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setLosAngHover(false)}
         d="M70.013 149.258v-.788l4.245-3.37h2.932v-1.838h1.095l.007.06v-1.706l-7.812-14.093c.557-.034 1.114-.962 1.114-.962l34.046-.001-.016 8.27c0 .832.044.875.657.875.612 0 .372.307.416 2.408.043 2.1.328 3.194.415 3.807.088.613-.306 1.007-.306 1.007l-1.816 5.273s-.22.547-.613.197c-.394-.35-.35.504-.963.788-.613.285-.691.735-.366.952.325.216.064.944.064.944l-4.846.18.031 1.175-2.909 2.26-1.238 2.197s-1.645-1.622-1.49-.54c.155 1.084-.155.527-.928.898-.774.372-.805-.093-1.362.495s-.774.774-1.454.62c-.681-.155-1.795-1.022-2.352-.991-.557.031-.836.34-1.27-.217-.432-.557-.37-.773-.03-.959.34-.186.897-.588.743-.928-.155-.34-.403-1.362-2.012-3.683-1.61-2.321-1.375-2.06-1.622-2.232-.265-.183-.142-.275-1.875-.275s-5.54.31-6.56 1.362c-1.022 1.052-.496-.464-1.084-.65-.588-.186-2.804-.08-2.841-.535z"
         style={{
-          fill: "#fff",
+          fill: "url(#LosAng-image)",
           fillOpacity: 1,
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -266,9 +366,9 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setSanBernHover(false)}
         d="M176.882 145.028v3.02h-46.96c-1.05 0-1.126 1.122-1.126 1.122s-7.675.371-7.737-.093c-.062-.464-.96-.31-2.692-.279-1.733.031-1.88-.27-1.88-.27h-4.858v1.182l-1.663.7v1.226h-1.313v.92l-1.023.945c-1.082-.805-4.424-2.507-4.424-2.507s.18-.64-.144-.857c-.325-.217-.247-.667.366-.952.613-.284.57-1.138.963-.788.394.35.613-.197.613-.197l1.816-5.273s.394-.394.306-1.007c-.087-.613-.372-1.707-.415-3.807-.044-2.101.196-2.408-.416-2.408-.613 0-.657-.043-.657-.875v-8.271l1.342-.011.034-22.6s.99-1.61-.68-1.734c-1.672-.124.061-1.61.061-1.61v-1.463h53.468l.434-1.288h3.807l29.399 20.393s.847.435.54 1.792c-.306 1.356-.306 1.575.35 1.882.657.306.92.393.92.919 0 .525 1.313 2.844 2.757 3.107 1.444.262 1.532.525 1.488 1.094-.044.569 1.269 1.313 1.05 2.32-.219 1.006 1.62.919 1.707 2.013.087 1.094.263 1.138-.088 2.1-.35.963 2.364-.393 2.583.394.218.788 1.488.526 1.4 1.313-.087.788 1.138.57 1.138.57s1.4-.613 1.576.568c.175 1.182.48.875.48.875s1.401.92.22 1.664c-1.182.744-.482 1.838-1.094 2.275-.43.308-1.663-.394-2.101.744-.438 1.138-1.663 1.75-2.407 1.663-.744-.087-1.329 1.29-1.617 1.292z"
         style={{
-          fill: "url(#sanBern-image)",
+          fill: "url(#SanBern-image)",
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -297,9 +397,9 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setRiverHover(false)}
         d="M112.497 162.954c-.124-.743-.248-.897.139-1.532.387-.634 1.934-2.862 1.934-2.862m84.228 5.732-43.23.443h-35.465l-.805-.743-3.342-.557v-.495h-3.528s.007-.605-.148-.76c-.155-.154 2.29-3.62 2.29-3.62l-1.78-.833-1.401-.175s.394-1.575-.438-1.575c-.832 0-1.208.2-1.58-.233-.371-.434-.68-1.517-1.702-2.229l.962-1.04v-.919h1.313v-1.225l1.663-.7v-1.182h4.858s.148.3 1.88.27c1.734-.031 2.631-.186 2.693.278.062.464 7.737.093 7.737.093s.076-1.122 1.126-1.122h46.96v-3.02h25.734l.262 1.75s-1.05 1.926-2.013 1.926c-.963 0-1.006.832-.394.963.613.131 1.16.482.722.482-.437 0-.372.109-.065.35.306.24.328.306.022.306-.307 0-.613.306-.438.394.175.087.263.175.219.372-.044.197.897.853.897 2.035 0 1.182.306 1.05.656 1.182.35.13.263.525-.13.7-.395.175-.964-.088-.745.875.219.963.263 1.488.131 1.97-.13.481.744.612.35 1.269-.393.656-2.647 1.838-3.27 4.77z"
         style={{
-          fill: "#fff",
+          fill: "url(#River-image)",
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -328,9 +428,9 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setOrangeHover(false)}
         d="M112.319 162.163c-.155-.155 2.29-3.62 2.29-3.62l-1.781-.833-1.4-.175s.393-1.576-.438-1.576c-.832 0-1.209.2-1.58-.233-.372-.433-.681-1.516-1.702-2.228-1.022-.712-4.364-2.414-4.364-2.414l-5.168.093.031 1.176-2.909 2.26-1.238 2.196s2.136 2.538 3.28 2.971c1.146.433 7.304 1.888 7.861 3.714.557 1.826.897 1.609 1.547 1.547.65-.062.372-.619 1.795.836 1.424 1.454 1.517 1.454 1.764 1.3.248-.155.31-.356.325-.635.016-.279-.278-1.687.743-1.64 1.021.046 1.284-1.223 1.16-1.965-.123-.743-.247-.898.14-1.532.386-.635 1.934-2.863 1.934-2.863"
         style={{
-          fill: "#fff",
+          fill: "url(#Orange-image)",
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
@@ -364,9 +464,9 @@ const SoCalCountiesSVG = ({
           onMouseLeave={() => setImperialHover(false)}
           d="M162.859 164.221v10.955l-.68.31v11.45l37.434-4.157s1.603-1.62 3.266-.613c1.663 1.007 6.17-.7 6.17-.7s1.226-.131.745-.744c-.482-.613.131-1.007.875-1.313.744-.306 1.007-1.094.35-1.926-.656-.831-.787-1.313-.437-1.444.35-.131.525-.481.569-.744.043-.263-1.094.306-1.05-.306.043-.613-.132-2.145-1.095-2.145s-1.269.175-1.269.175-1.488.372-1.838-.197c-.35-.569-.47-.722-.646-.426-.175.295-1.061 1.236-.886.186.175-1.05-.788-.526-1.225-.963-.438-.438.919-1.4.919-1.4s.441-.252.38-1.335c-.063-1.083.247-1.362.247-1.362s.433-.464-.093-.495c-.526-.031-.975-.557-.526-.882.448-.325.557-.31.526-.79-.031-.479-.712-.293-.65-.556.062-.263.882-.48 1.052-.186.17.294.96-.835.96-.835z"
           style={{
-            fill: "#fff",
+            fill: "url(#Imperial-image)",
             stroke: "#000",
-            strokeWidth: ".350119px",
+            strokeWidth: "1px",
             strokeLinecap: "butt",
             strokeLinejoin: "miter",
             strokeOpacity: 1,
@@ -396,9 +496,9 @@ const SoCalCountiesSVG = ({
         onMouseLeave={() => setSanDiegoHover(false)}
         d="m124.659 191.044 30.265-3.59v-11.45l.681-.309V164.74h-35.464l-.805-.743-3.342-.557v-.495h-3.528s.31 1.98-1.114 1.98c-1.424 0-.31 1.796-.99 2.167-.681.371 9.16 6.746 9.53 11.45.372 4.704-1.856 1.919-.866 3.404.99 1.486 1.053 6.746 1.733 5.57.681-1.175 2.6-.68 2.476 1.238-.68 2.91.433 2.352 1.424 2.29z"
         style={{
-          fill: "#fff",
+          fill: "url(#SanDiego-image)",
           stroke: "#000",
-          strokeWidth: ".350119px",
+          strokeWidth: "1px",
           strokeLinecap: "butt",
           strokeLinejoin: "miter",
           strokeOpacity: 1,
