@@ -1,5 +1,6 @@
 .county-overview-container {
     /* background-color: red; */
+    width: 30vw;
 }
 
 .county-overview-container > h1 {
@@ -14,8 +15,7 @@
 .overview-images-container {
     display: flex;
     justify-content: center;
-    height: 150px;
-    /* background-color: green; */
+    height: 30vh;
 }
 
 .overview-image {
@@ -24,6 +24,18 @@
     object-fit: cover;
     border-radius: 10px;
     margin-top: 15px;
+    animation: 200ms linear fade-in;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0.1;
+        left: 100%;
+    }
+    100% {
+        opacity: 1;
+        left: 0%;
+    }
 }
 
 @media screen and (max-width: 500px) {

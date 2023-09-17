@@ -18,16 +18,18 @@ const Landing = () => {
   }, [indexCounter]);
 
   return (
-    <div className="landing">
+    <div className="landing-container">
       <h1>SoCal Unveiled</h1>
-      <div className="map-container">
-        <SoCalCountiesSVG
-          hoverIndex={hoverIndex}
-          setHoverIndex={setHoverIndex}
-          indexCounter={indexCounter}
-        />
+      <div className="landing">
+        <div className="map-container">
+          <SoCalCountiesSVG
+            hoverIndex={hoverIndex}
+            setHoverIndex={setHoverIndex}
+            indexCounter={indexCounter}
+          />
+        </div>
+        <CountyOverview hoverIndex={hoverIndex} />
       </div>
-      <CountyOverview hoverIndex={hoverIndex} />
     </div>
   );
 };

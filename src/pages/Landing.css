@@ -1,26 +1,31 @@
-.landing {
+.landing-container {
     margin-top: 50px;
 }
 
-  .landing > h1 {
-    font-family: 'Love Ya Like A Sister', cursive;
-    font-size: 50px;
-    text-align: center;
-    color: #daa520;
-  }
-  .map-container {
-    width: 1000px;
-    height: 600px;
-    /* background-color: red; */
-    overflow: visible;
-    
-  }
+.landing-container > h1 {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 50px;
+  text-align: center;
+  color: #daa520;
+}
 
-  @media screen and (max-width: 500px) {
-    .map-container {
-        width: 400px;
-        height: 250px;
-        margin: auto;
-    }
+.landing {
+  display: flex;
+}
+
+.map-container {
+  width: 1000px;
+  height: 600px;
+  /* background-color: red; */
+  overflow: visible;
+  
+}
+
+@media screen and (max-width: 500px) {
+  .map-container {
+      width: 400px;
+      height: 250px;
+      margin: auto;
   }
+}
 
