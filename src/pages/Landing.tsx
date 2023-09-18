@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SoCalCountiesSVG from "../assets/svg/SoCalCountiesSVG";
 import CountyOverview from "../components/CountyOverview/CountyOverview";
+import Carousel from "../components/Carousel/Carousel";
 import "./Landing.css";
 
 const Landing = () => {
@@ -30,6 +31,7 @@ const Landing = () => {
         </div>
         <CountyOverview hoverIndex={hoverIndex} />
       </div>
+      <Carousel />
     </div>
   );
 };

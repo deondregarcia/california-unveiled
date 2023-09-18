@@ -1,0 +1,9 @@
+.carousel-container {
+    display: flex;
+    background-color: rgb(254, 149, 149);
+}
+
+.carousel-card > img {
+    height: 300px;
+    width: 300px;
+}
