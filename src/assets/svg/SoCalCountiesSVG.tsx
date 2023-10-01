@@ -50,7 +50,7 @@ const SoCalCountiesSVG = ({
       className="counties-svg"
       // {...props}
     >
-      {/* images must be defined as pattern tags, then used in 'fill' as url(#id) */}
+      {/* images must be defined as pattern tags, then used in 'fill' (in the path tag) as url(#id) */}
       <defs>
         <pattern id="kern-image" width={1} height={1}>
           <image

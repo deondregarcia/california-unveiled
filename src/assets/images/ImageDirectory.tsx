@@ -13,6 +13,10 @@ import Ven2 from "./Ventura/GardensOfTheWorld.jpg";
 import LosAng0 from "./LosAngeles/VeniceCanals.jpg";
 import LosAng1 from "./LosAngeles/MalibuHinduTemple.jpg";
 import LosAng2 from "./LosAngeles/GreystoneMansion.jpg";
+import LosAng3 from "./LosAngeles/GettyVilla.jpg";
+import LosAng4 from "./LosAngeles/WitchHouse.jpg";
+import LosAng5 from "./LosAngeles/SRFLShrine.jpg";
+import LosAng6 from "./LosAngeles/DescansoGardens.jpg";
 import SanBern0 from "./SanBernardino/BAPS.jpg";
 import SanBern1 from "./SanBernardino/MozumdarTemple.jpg";
 import SanBern2 from "./SanBernardino/EgyptianBuilding.jpg";
@@ -51,7 +55,7 @@ export const ImageDir: ImageDirType = {
   SanLuis: [SanLuis0, SanLuis1, SanLuis2],
   SanBar: [SanBar0, SanBar1, SanBar2],
   Ven: [Ven0, Ven1, Ven2],
-  LosAng: [LosAng0, LosAng1, LosAng2],
+  LosAng: [LosAng0, LosAng1, LosAng2, LosAng3, LosAng4, LosAng5, LosAng6],
   SanBern: [SanBern0, SanBern1, SanBern2],
   River: [River0, River1, River2],
   Orange: [Orange0, Orange1, Orange2],

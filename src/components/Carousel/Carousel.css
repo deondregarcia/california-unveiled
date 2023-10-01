@@ -1,9 +1,54 @@
+.carousel-wrapper {
+    height: 180px;
+    background-color: blue;
+    position: relative;
+}
+
 .carousel-container {
+    position: absolute;
     display: flex;
-    background-color: rgb(254, 149, 149);
+    transition: transform 500ms ease-in-out;
+    background-color: red;
+}
+
+.carousel-left-button, .carousel-right-button {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.carousel-left-button {
+    left: 0;
+}
+
+.carousel-right-button {
+    right: 0;
+}
+
+.carousel-card {
+    /* height and width defined in corresponding tsx file */
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1.0);
+    transition: transform 150ms ease-in-out;
+    z-index: 1;
+}
+
+.carousel-card:nth-child(n + 1) {
+    margin-right: 15px;
+}
+
+.carousel-card:hover {
+    transform: scale(1.05);
+    transition: transform 150ms ease-in-out;
 }
 
 .carousel-card > img {
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
+

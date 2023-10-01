@@ -38,11 +38,12 @@ const CountyOverview = ({ hoverIndex }: { hoverIndex: string }) => {
     <div className="county-overview-container">
       <h1>{countyNameArray[countyIndex]}</h1>
       <div className="overview-images-container">
-        {ImageDir[countyStringIDArray[countyIndex]]?.map((image) => {
+        {ImageDir[countyStringIDArray[countyIndex]]?.map((image, index) => {
           return (
             <img
               className="overview-image"
               src={image}
+              key={index}
               alt={`${countyNameArray[countyIndex]} County photo`}
             />
           );

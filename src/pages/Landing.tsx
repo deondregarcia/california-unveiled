@@ -31,7 +31,7 @@ const Landing = () => {
         </div>
         <CountyOverview hoverIndex={hoverIndex} />
       </div>
-      <Carousel />
+      <Carousel countyName="LosAng" />
     </div>
   );
 };
