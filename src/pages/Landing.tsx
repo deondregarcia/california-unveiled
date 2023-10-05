@@ -32,6 +32,15 @@ const Landing = () => {
         <CountyOverview hoverIndex={hoverIndex} />
       </div>
       <Carousel countyName="LosAng" />
+      <Carousel countyName="SanBern" />
+      <Carousel countyName="Kern" />
+      <Carousel countyName="SanLuis" />
+      <Carousel countyName="Ven" />
+      <Carousel countyName="SanDiego" />
+      <Carousel countyName="River" />
+      <Carousel countyName="Orange" />
+      <Carousel countyName="Imperial" />
+      <Carousel countyName="SanBar" />
     </div>
   );
 };

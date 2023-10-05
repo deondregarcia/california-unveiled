@@ -1,23 +1,45 @@
+.carousel-outer-wrapper {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .carousel-wrapper {
     height: 180px;
-    background-color: blue;
     position: relative;
+}
+
+.carousel-header {
+    margin-left: 8vw;
 }
 
 .carousel-container {
     position: absolute;
     display: flex;
     transition: transform 500ms ease-in-out;
-    background-color: red;
 }
 
 .carousel-left-button, .carousel-right-button {
     position: absolute;
     height: 100%;
-    width: 50px;
-    background-color: black;
-    opacity: 0.5;
+    width: 4%;
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
+    cursor: pointer;
+}
+
+.button-hidden {
+    opacity: 0;
+    cursor: default;
+    transition: opacity 250ms ease-in-out;
+}
+
+.button-visible {
+    opacity: 1;
+    transition: opacity 250ms 250ms ease-in-out;
 }
 
 .carousel-left-button {
@@ -28,27 +50,52 @@
     right: 0;
 }
 
+.carousel-button-arrow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    fill: white;
+}
+
+.carousel-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-card-wrapper > p {
+    margin-top: 5px;
+}
+
 .carousel-card {
     /* height and width defined in corresponding tsx file */
-    border-radius: 20px;
+    border-radius: 1rem;
+    border: 2px black solid;
     overflow: hidden;
     transform: scale(1.0);
     transition: transform 150ms ease-in-out;
     z-index: 1;
+    cursor: pointer;
 }
 
 .carousel-card:nth-child(n + 1) {
-    margin-right: 15px;
+    margin-right: 1vw;
+}
+
+.carousel-card:nth-child(1) {
+    margin-left: 1vw;
 }
 
 .carousel-card:hover {
     transform: scale(1.05);
     transition: transform 150ms ease-in-out;
+    outline: 2px solid white;
 }
 
 .carousel-card > img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    user-select: none;
 }
 

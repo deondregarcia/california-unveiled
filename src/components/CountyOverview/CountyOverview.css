@@ -1,6 +1,7 @@
 .county-overview-container {
     /* background-color: red; */
     width: 30vw;
+    overflow: hidden;
 }
 
 .county-overview-container > h1 {

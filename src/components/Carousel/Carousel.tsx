@@ -12,6 +12,7 @@ const Carousel = ({ countyName }: { countyName: string }) => {
 
   const slideLength = CountyObjectLoader[countyName].length;
   const visibleCardLength = 3; // max num of cards in one row, minus one. Revise later to programmatically grab number
+  const cardWidth = window.innerWidth * 0.2;
 
   const handleClickRight = (): void => {
     setCarouselIndex((prev) => {
@@ -45,28 +46,54 @@ const Carousel = ({ countyName }: { countyName: string }) => {
   }, []);
 
   return (
-    <div className="carousel-wrapper">
-      <div className="carousel-left-button" onClick={handleClickLeft}>
-        <ArrowLeft />
-      </div>
-      <div className="carousel-right-button" onClick={handleClickRight}>
-        <ArrowRight />
-      </div>
-      <div
-        className="carousel-container"
-        ref={carouselRef}
-        style={{ transform: `translateX(${-160 * 2 * carouselIndex}px)` }}
-      >
-        {CountyObjectLoader[countyName].map((county) => {
-          return (
-            <div
-              className="carousel-card"
-              style={{ height: `${90 * 2}px`, width: `${160 * 2}px` }}
-            >
-              <img src={county.image} alt={`Location: ${county.name}`} />
-            </div>
-          );
-        })}
+    <div className="carousel-outer-wrapper">
+      {/* outer wrapper for white space around carousel */}
+      <h1 className="carousel-header">{countyName} County</h1>
+      <div className="carousel-wrapper">
+        <div
+          className={
+            carouselIndex === 0
+              ? "carousel-left-button button-hidden"
+              : "carousel-left-button button-visible"
+          }
+          onClick={handleClickLeft}
+        >
+          <ArrowLeft className="carousel-button-arrow" />
+        </div>
+        <div
+          className={
+            carouselIndex >= slideLength - 1 - visibleCardLength
+              ? "carousel-right-button button-hidden"
+              : "carousel-right-button button-visible"
+          }
+          onClick={handleClickRight}
+        >
+          <ArrowRight className="carousel-button-arrow" />
+        </div>
+        <div
+          className="carousel-container"
+          ref={carouselRef}
+          style={{
+            transform: `translateX(${
+              -cardWidth * carouselIndex - 15 * carouselIndex
+            }px)`,
+            marginLeft: `${window.innerWidth * 0.045}px`,
+          }}
+        >
+          {CountyObjectLoader[countyName].map((county) => {
+            return (
+              <div className="carousel-card-wrapper">
+                <div
+                  className="carousel-card"
+                  style={{ height: `${180}px`, width: `${cardWidth}px` }}
+                >
+                  <img src={county.image} alt={`Location: ${county.name}`} />
+                </div>
+                <p>{county.name}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
