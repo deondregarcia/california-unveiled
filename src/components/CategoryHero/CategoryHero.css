@@ -1,0 +1,14 @@
+.category-hero-container {
+    height: 30vh;
+    /* background-color: red; */
+}
+
+.category-hero-container > h1 {
+    margin-top: 3rem;
+    margin-left: 5rem;
+    font-size: 3rem;
+}
+
+.category-hero-container > p {
+    margin-left: 5rem;
+}

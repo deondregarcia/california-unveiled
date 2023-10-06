@@ -1,12 +1,13 @@
 import React from "react";
 import "./HiddenGems.css";
 import CategoryGrid from "../../components/CategoryGrid/CategoryGrid";
+import CategoryHero from "../../components/CategoryHero/CategoryHero";
 
 const HiddenGems = () => {
   return (
     <div>
-      <h1>Category Grid</h1>
-      <CategoryGrid />
+      <CategoryHero category="hiddenGems" />
+      <CategoryGrid category="hiddenGems" />
     </div>
   );
 };

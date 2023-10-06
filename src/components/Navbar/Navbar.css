@@ -1,0 +1,32 @@
+.navbar-container {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background-color: black;
+}
+
+.navbar-links-container > ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-links-container > ul > li {
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+.navbar-links-container > ul > li:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.navbar-link {
+    text-decoration: none;
+}
+
+.navbar-link-text {
+    font-size: 20px;
+}
