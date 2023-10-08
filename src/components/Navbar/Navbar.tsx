@@ -11,22 +11,22 @@ const Navbar = () => {
       <div className="navbar-links-container">
         <ul>
           <li>
-            <Link to="hidden-gems" className="navbar-link">
+            <Link to="/" className="navbar-link">
               <h1 className="navbar-link-text">All</h1>
             </Link>
           </li>
           <li>
-            <Link to="hidden-gems" className="navbar-link">
+            <Link to="sightseeing" className="navbar-link">
               <h1 className="navbar-link-text">Sightseeing</h1>
             </Link>
           </li>
           <li>
-            <Link to="hidden-gems" className="navbar-link">
+            <Link to="nature" className="navbar-link">
               <h1 className="navbar-link-text">Nature</h1>
             </Link>
           </li>
           <li>
-            <Link to="hidden-gems" className="navbar-link">
+            <Link to="typical-tourist" className="navbar-link">
               <h1 className="navbar-link-text">Typical Tourist</h1>
             </Link>
           </li>

@@ -1,3 +1,10 @@
+.grid-filter {
+    display: flex;
+    justify-content: end;
+    padding-right: 15%;
+    margin-bottom: 50px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -17,6 +24,14 @@
 .grid-card-container > h1 {
     font-size: 1.3rem;
     margin-top: 6px;
+}
+
+.grid-visible {
+    display: block;
+}
+
+.grid-hidden {
+    display: none;
 }
 
 .grid-image-container {
