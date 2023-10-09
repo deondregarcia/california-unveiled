@@ -2,6 +2,10 @@
     overflow: visible;
   }
 
+path {
+    cursor: pointer;
+}
+
 /* kern county */
 .kern-yes-hover {
     transform: translate(2.052px, -107.678px);
