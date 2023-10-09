@@ -73,6 +73,40 @@ const GridFilterDropdown = ({
             }
           >
             {countyList.map((county, index) => {
+              let countyNameFull = "";
+              switch (county) {
+                case "Kern":
+                  countyNameFull = "Kern";
+                  break;
+                case "SanLuis":
+                  countyNameFull = "San Luis Obispo";
+                  break;
+                case "SanBar":
+                  countyNameFull = "Santa Barbara";
+                  break;
+                case "Ven":
+                  countyNameFull = "Ventura";
+                  break;
+                case "LosAng":
+                  countyNameFull = "Los Angeles";
+                  break;
+                case "SanBern":
+                  countyNameFull = "San Bernardino";
+                  break;
+                case "River":
+                  countyNameFull = "Riverside";
+                  break;
+                case "Orange":
+                  countyNameFull = "Orange";
+                  break;
+                case "Imperial":
+                  countyNameFull = "Imperial";
+                  break;
+                case "SanDiego":
+                  countyNameFull = "San Diego";
+                  break;
+              }
+
               return (
                 <div
                   className="filter-dropdown-selector"
@@ -84,7 +118,7 @@ const GridFilterDropdown = ({
                   key={index}
                   onClick={() => handleFilterSelect(county)}
                 >
-                  <p>{county}</p>
+                  <p>{countyNameFull}</p>
                 </div>
               );
             })}

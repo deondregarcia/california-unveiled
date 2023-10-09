@@ -10,38 +10,36 @@ const Navbar = () => {
       </div>
       <div className="navbar-links-container">
         <ul>
-          <li>
-            <Link to="/" className="navbar-link">
+          <Link to="/" className="navbar-link">
+            <li>
               <h1 className="navbar-link-text">All</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="sightseeing" className="navbar-link">
+            </li>
+          </Link>
+          <Link to="sightseeing" className="navbar-link">
+            <li>
               <h1 className="navbar-link-text">Sightseeing</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="nature" className="navbar-link">
+            </li>
+          </Link>
+          <Link to="nature" className="navbar-link">
+            <li>
               <h1 className="navbar-link-text">Nature</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="typical-tourist" className="navbar-link">
+            </li>
+          </Link>
+          <Link to="typical-tourist" className="navbar-link">
+            <li>
               <h1 className="navbar-link-text">Typical Tourist</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="hidden-gems" className="navbar-link">
+            </li>
+          </Link>
+          <Link to="hidden-gems" className="navbar-link">
+            <li>
               <h1 className="navbar-link-text">Hidden Gems</h1>
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
-      <div className="navbar-extra-container">
-        <Link to="my-account" className="navbar-link">
-          <h1>My Account</h1>
-        </Link>
-      </div>
+      <Link to="my-account" className="navbar-link">
+        <h1>My Account</h1>
+      </Link>
     </div>
   );
 };

@@ -13,10 +13,12 @@ const CategoryGrid = ({ category }: { category: string }) => {
 
   for (const county in CountyObjectLoader) {
     for (let i = 0; i < CountyObjectLoader[county].length; i++) {
-      if (CountyObjectLoader[county][i].tags.includes(category))
+      if (CountyObjectLoader[county][i].tags.includes(category)) {
         categoryArray.push(CountyObjectLoader[county][i]);
-      if (!countyList.includes(CountyObjectLoader[county][i].countyNameShort))
-        countyList.push(CountyObjectLoader[county][i].countyNameShort);
+
+        if (!countyList.includes(CountyObjectLoader[county][i].countyNameShort))
+          countyList.push(CountyObjectLoader[county][i].countyNameShort);
+      }
     }
   }
 
@@ -53,7 +55,7 @@ const CategoryGrid = ({ category }: { category: string }) => {
                 />
               </div>
               <h1>{object.name}</h1>
-              <p>{object.countyIndex}</p>
+              <p>{object.countyNameFull} County</p>
             </div>
           );
         })}

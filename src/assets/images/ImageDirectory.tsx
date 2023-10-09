@@ -37,19 +37,6 @@ interface ImageDirType {
   [key: string]: any[];
 }
 
-// interface ImageDirType {
-//   Kern: any[];
-//   SanLuis: any[];
-//   SanBar: any[];
-//   Ven: any[];
-//   LosAng: any[];
-//   SanBern: any[];
-//   River: any[];
-//   Orange: any[];
-//   Imperial: any[];
-//   SanDiego: any[];
-// }
-
 export const ImageDir: ImageDirType = {
   Kern: [Kern0, Kern1, Kern2],
   SanLuis: [SanLuis0, SanLuis1, SanLuis2],

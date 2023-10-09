@@ -14,6 +14,40 @@ const Carousel = ({ countyName }: { countyName: string }) => {
   const visibleCardLength = 3; // max num of cards in one row, minus one. Revise later to programmatically grab number
   const cardWidth = window.innerWidth * 0.2;
 
+  let countyNameFull = "";
+  switch (countyName) {
+    case "Kern":
+      countyNameFull = "Kern";
+      break;
+    case "SanLuis":
+      countyNameFull = "San Luis Obispo";
+      break;
+    case "SanBar":
+      countyNameFull = "Santa Barbara";
+      break;
+    case "Ven":
+      countyNameFull = "Ventura";
+      break;
+    case "LosAng":
+      countyNameFull = "Los Angeles";
+      break;
+    case "SanBern":
+      countyNameFull = "San Bernardino";
+      break;
+    case "River":
+      countyNameFull = "Riverside";
+      break;
+    case "Orange":
+      countyNameFull = "Orange";
+      break;
+    case "Imperial":
+      countyNameFull = "Imperial";
+      break;
+    case "SanDiego":
+      countyNameFull = "San Diego";
+      break;
+  }
+
   const handleClickRight = (): void => {
     setCarouselIndex((prev) => {
       console.log(prev);
@@ -48,7 +82,7 @@ const Carousel = ({ countyName }: { countyName: string }) => {
   return (
     <div className="carousel-outer-wrapper">
       {/* outer wrapper for white space around carousel */}
-      <h1 className="carousel-header">{countyName} County</h1>
+      <h1 className="carousel-header">{countyNameFull} County</h1>
       <div className="carousel-wrapper">
         <div
           className={

@@ -12,31 +12,18 @@
     list-style: none;
 }
 
-.navbar-links-container > ul > li {
-    padding: 5px;
+.navbar-link {
+    padding: 5px 8px;
     margin-left: 15px;
     border-radius: 5px;
+    text-decoration: none;
 }
 
-.navbar-links-container > ul > li:hover {
+.navbar-link:hover {
     background-color: gray;
     cursor: pointer;
-}
-
-.navbar-link {
-    text-decoration: none;
 }
 
 .navbar-link-text {
     font-size: 20px;
-}
-
-.navbar-extra-container {
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.navbar-extra-container:hover {
-    background-color: gray;
-    cursor: pointer;
 }

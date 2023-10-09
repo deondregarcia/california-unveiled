@@ -16,7 +16,7 @@
 .map-container {
   width: 1000px;
   height: 600px;
-  /* background-color: red; */
+  background-color: red;
   overflow: visible;
   
 }

@@ -22,6 +22,7 @@ const Landing = () => {
     <div className="landing-container">
       <h1>SoCal Unveiled</h1>
       <div className="landing">
+        <CountyOverview hoverIndex={hoverIndex} />
         <div className="map-container">
           <SoCalCountiesSVG
             hoverIndex={hoverIndex}
@@ -29,7 +30,6 @@ const Landing = () => {
             indexCounter={indexCounter}
           />
         </div>
-        <CountyOverview hoverIndex={hoverIndex} />
       </div>
       <Carousel countyName="LosAng" />
       <Carousel countyName="SanBern" />

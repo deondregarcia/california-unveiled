@@ -6,7 +6,7 @@ export const CountyTags: CountyTagsType = {
   SanBar: ["hiddenGems"],
   Ven: ["hiddenGems"],
   LosAng: [
-    "hiddenGems",
+    ["typicalTourist", "sightseeing"],
     "hiddenGems",
     "hiddenGems",
     "hiddenGems",
