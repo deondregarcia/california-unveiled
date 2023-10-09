@@ -4,15 +4,47 @@
 
 .filter-container {
     position: relative;
+    display: flex;
 }
 
 .filter-textbox {
-    position: absolute;
     height: 25px;
     width: 150px;
     z-index: 3;
-    background-color: red;
+    cursor: pointer;
+    border: solid 1px black;
+    background-color: white;
 }
+
+.filter-textbox > p {
+    color: black;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.filter-arrow-container {
+    background-color: white;
+    height: 25px;
+    width: 25px;
+    border: 1px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-arrow {
+    rotate: 0deg;
+    transition: rotate 700ms ease-in-out;
+}
+
+.filter-arrow-rotated {
+    rotate: -180deg;
+    transition: rotate 700ms ease-in-out;
+}
+
 
 .filter-dropdown {
     position: absolute;
@@ -24,25 +56,24 @@
 
 .dropdown-inactive {
     transform: translateY(-100%);
-    transition: transform 1000ms ease-in-out;
+    transition: transform 700ms ease-in-out;
 }
 
 .dropdown-active {
     transform: translateY(25px);
-    transition: transform 1000ms ease-in-out;
+    transition: transform 700ms ease-in-out;
 }
 
 .filter-dropdown-window {
     position: absolute;
     height: 350px;
     width: 150px;
-    background-color: green;
     overflow: hidden;
     z-index: 1;
 }
 
 .window-inactive {
-    animation: window-fade 1000ms;
+    animation: window-fade 800ms;
     visibility: hidden;
 }
 
@@ -60,10 +91,13 @@
 
 .filter-dropdown-selector {
     height: 25px;
+    border: solid 1px black;
 }
 
 .filter-dropdown-selector > p {
     color: black;
+    margin-left: 10px;
+    margin-top: 3px;
 }
 
 .filter-total-select-wrapper {
@@ -75,11 +109,17 @@
 .filter-total-select-none {
     height: 25px;
     width: 50%;
-    background-color: brown;
+    border: solid 1px black;
 }
 
 .filter-total-select-all {
     height: 25px;
     width: 50%;
-    background-color: yellow;
+    border: solid 1px black;
+}
+
+.filter-total-select-none > p, .filter-total-select-all > p {
+    color: black;
+    text-align: center;
+    margin-top: 3px;
 }

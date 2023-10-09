@@ -30,3 +30,13 @@
 .navbar-link-text {
     font-size: 20px;
 }
+
+.navbar-extra-container {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.navbar-extra-container:hover {
+    background-color: gray;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import React, { MouseEventHandler, useState } from "react";
 import "./GridFilterDropdown.css";
 
+import ArrowDown from "../../assets/svg/ArrowDown";
+
 const GridFilterDropdown = ({
   filterValues,
   setFilterValues,
@@ -36,8 +38,26 @@ const GridFilterDropdown = ({
         <div
           className="filter-textbox"
           onClick={() => setFilterActive(!filterActive)}
-        ></div>
-        <div className="filter-arrow"></div>
+        >
+          <p>
+            {filterValues.length === countyList.length
+              ? "All Selected"
+              : filterValues.length > 1
+              ? "Multiple Selected"
+              : filterValues.length === 1
+              ? "One Selected"
+              : "None Selected"}
+          </p>
+        </div>
+        <div
+          className="filter-arrow-container"
+          onClick={() => setFilterActive(!filterActive)}
+        >
+          <ArrowDown
+            className={filterActive ? "filter-arrow-rotated" : "filter-arrow"}
+            style={{ height: "1.2rem" }}
+          />
+        </div>
         <div
           className={
             filterActive
@@ -58,7 +78,7 @@ const GridFilterDropdown = ({
                   className="filter-dropdown-selector"
                   style={
                     filterValues.includes(county)
-                      ? { backgroundColor: "gray" }
+                      ? { backgroundColor: "#ADD8E6" }
                       : { backgroundColor: "white" }
                   }
                   key={index}

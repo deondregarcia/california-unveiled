@@ -38,9 +38,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-extra-container">
-        <div>
+        <Link to="my-account" className="navbar-link">
           <h1>My Account</h1>
-        </div>
+        </Link>
       </div>
     </div>
   );
