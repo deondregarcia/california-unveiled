@@ -54,24 +54,37 @@ const Landing = () => {
       <div className="landing">
         <div className="county-overview-container">
           <h1>{countyNameArray[countyIndex]}</h1>
-          <div className="overview-images-container">
-            {ImageDir[countyStringIDArray[countyIndex]]?.map((image, index) => {
-              return (
-                <img
-                  className="overview-image"
-                  src={image}
-                  key={index}
-                  alt={`${countyNameArray[countyIndex]} County`}
-                />
-              );
-            })}
-          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
             quaerat quam nesciunt a debitis harum ipsa sed? Adipisci soluta vel,
             accusantium, dolorem nesciunt qui nostrum, id officia laboriosam
             architecto similique.
           </p>
+          <div className="overview-images-container">
+            {ImageDir[countyStringIDArray[countyIndex]]
+              ?.slice(0, 3)
+              .map((image, index) => {
+                return (
+                  <img
+                    className={
+                      index === 1
+                        ? "overview-image second-image"
+                        : "overview-image"
+                    }
+                    style={{
+                      animation: `fade-in ${
+                        800 + 250 * index
+                      }ms ease-in-out, bounce 3000ms ${
+                        1000 + 300 * index
+                      }ms ease-in-out infinite`,
+                    }}
+                    src={image}
+                    key={index}
+                    alt={`${countyNameArray[countyIndex]} County`}
+                  />
+                );
+              })}
+          </div>
         </div>
         <div className="map-container">
           <SoCalCountiesSVG
