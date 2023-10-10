@@ -5,54 +5,38 @@ import { CountyObjectLoader } from "../../assets/CountyObjectLoader";
 import ArrowLeft from "../../assets/svg/ArrowLeft";
 import ArrowRight from "../../assets/svg/ArrowRight";
 
-const Carousel = ({ countyName }: { countyName: string }) => {
-  const [carouselWidth, setCarouselWidth] = useState(0);
-  const [carouselIndex, setCarouselIndex] = useState(0);
+const Carousel = ({
+  countyName,
+  countyNameFull,
+}: {
+  countyName: string;
+  countyNameFull: string;
+}) => {
+  const [carouselTranslation, setCarouselTranslation] = useState<
+    [number, number]
+  >([0, 0]); // [carousel index, carousel translation]
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const slideLength = CountyObjectLoader[countyName].length;
-  const visibleCardLength = 3; // max num of cards in one row, minus one. Revise later to programmatically grab number
-  const cardWidth = window.innerWidth * 0.2;
-
-  let countyNameFull = "";
-  switch (countyName) {
-    case "Kern":
-      countyNameFull = "Kern";
-      break;
-    case "SanLuis":
-      countyNameFull = "San Luis Obispo";
-      break;
-    case "SanBar":
-      countyNameFull = "Santa Barbara";
-      break;
-    case "Ven":
-      countyNameFull = "Ventura";
-      break;
-    case "LosAng":
-      countyNameFull = "Los Angeles";
-      break;
-    case "SanBern":
-      countyNameFull = "San Bernardino";
-      break;
-    case "River":
-      countyNameFull = "Riverside";
-      break;
-    case "Orange":
-      countyNameFull = "Orange";
-      break;
-    case "Imperial":
-      countyNameFull = "Imperial";
-      break;
-    case "SanDiego":
-      countyNameFull = "San Diego";
-      break;
-  }
+  const slideAmount = CountyObjectLoader[countyName].length;
+  const visibleCardLength = 4; // max num of cards in one row, minus one. Revise later to programmatically grab number
+  const cardWidth = window.innerWidth * 0.17;
+  const cardMargin = window.innerWidth * 0.005; // margin between cards
+  const carouselMargin = window.innerWidth * 0.0625; // margin on left of entire carousel
 
   const handleClickRight = (): void => {
-    setCarouselIndex((prev) => {
-      console.log(prev);
-      if (prev < slideLength - 1 - visibleCardLength) {
-        return prev + 1;
+    setCarouselTranslation((prev) => {
+      let [idx, translation] = prev;
+      if (idx === 0) {
+        translation = carouselMargin + cardWidth - window.innerWidth * 0.055;
+        return [idx + 1, -translation];
+      } else if (idx < slideAmount - 1 - visibleCardLength) {
+        translation = translation - cardWidth - cardMargin;
+        return [idx + 1, translation];
+      } else if (idx < slideAmount - 2 - visibleCardLength) {
+        // moving onto last slide will have diff translation amount
+        translation =
+          translation - cardWidth - cardMargin + window.innerWidth * 0.055;
+        return [idx + 1, translation];
       } else {
         return prev;
       }
@@ -60,24 +44,24 @@ const Carousel = ({ countyName }: { countyName: string }) => {
   };
 
   const handleClickLeft = () => {
-    setCarouselIndex((prev) => {
-      if (prev > 0) {
-        return prev - 1;
+    setCarouselTranslation((prev) => {
+      let [idx, translation] = prev;
+      if (idx === slideAmount - 1 - visibleCardLength) {
+        translation =
+          translation + carouselMargin + cardWidth - window.innerWidth * 0.055;
+        return [idx - 1, translation];
+      } else if (idx < slideAmount - 1 - visibleCardLength) {
+        translation = translation + cardWidth + cardMargin;
+        return [idx - 1, translation];
+      } else if (idx === 1) {
+        // moving onto last slide will have diff translation amount
+        translation = carouselMargin + cardWidth + window.innerWidth * 0.055;
+        return [idx - 1, translation];
       } else {
         return prev;
       }
     });
   };
-
-  console.log(window.innerWidth);
-
-  useEffect(() => {
-    console.log(
-      `carousel ref width: ${
-        carouselRef.current?.getBoundingClientRect().width
-      }`
-    );
-  }, []);
 
   return (
     <div className="carousel-outer-wrapper">
@@ -86,7 +70,7 @@ const Carousel = ({ countyName }: { countyName: string }) => {
       <div className="carousel-wrapper">
         <div
           className={
-            carouselIndex === 0
+            carouselTranslation[0] === 0
               ? "carousel-left-button button-hidden"
               : "carousel-left-button button-visible"
           }
@@ -96,7 +80,7 @@ const Carousel = ({ countyName }: { countyName: string }) => {
         </div>
         <div
           className={
-            carouselIndex >= slideLength - 1 - visibleCardLength
+            carouselTranslation[0] >= slideAmount - 1 - visibleCardLength
               ? "carousel-right-button button-hidden"
               : "carousel-right-button button-visible"
           }
@@ -106,20 +90,25 @@ const Carousel = ({ countyName }: { countyName: string }) => {
         </div>
         <div
           className="carousel-container"
-          ref={carouselRef}
           style={{
-            transform: `translateX(${
-              -cardWidth * carouselIndex - 15 * carouselIndex
-            }px)`,
-            marginLeft: `${window.innerWidth * 0.045}px`,
+            transform: `translateX(${carouselTranslation[1]}px)`,
+            marginLeft: `${carouselMargin}px`,
           }}
         >
-          {CountyObjectLoader[countyName].map((county) => {
+          {CountyObjectLoader[countyName].map((county, index) => {
             return (
-              <div className="carousel-card-wrapper">
+              <div className="carousel-card-wrapper" key={index}>
                 <div
                   className="carousel-card"
-                  style={{ height: `${180}px`, width: `${cardWidth}px` }}
+                  style={
+                    index < slideAmount - 1
+                      ? {
+                          height: `${180}px`,
+                          width: `${cardWidth}px`,
+                          marginRight: `${cardMargin}px`,
+                        }
+                      : { height: `${180}px`, width: `${cardWidth}px` }
+                  }
                 >
                   <img src={county.image} alt={`Location: ${county.name}`} />
                 </div>

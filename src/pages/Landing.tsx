@@ -81,16 +81,16 @@ const Landing = () => {
           />
         </div>
       </div>
-      <Carousel countyName="LosAng" />
-      <Carousel countyName="SanDiego" />
-      <Carousel countyName="Orange" />
-      <Carousel countyName="SanBern" />
-      <Carousel countyName="Kern" />
-      <Carousel countyName="SanLuis" />
-      <Carousel countyName="Ven" />
-      <Carousel countyName="River" />
-      <Carousel countyName="Imperial" />
-      <Carousel countyName="SanBar" />
+      <Carousel countyName="LosAng" countyNameFull="Los Angeles" />
+      <Carousel countyName="SanDiego" countyNameFull="San Diego" />
+      <Carousel countyName="Orange" countyNameFull="Orange" />
+      <Carousel countyName="SanBern" countyNameFull="San Bernardino" />
+      <Carousel countyName="Kern" countyNameFull="Kern" />
+      <Carousel countyName="SanLuis" countyNameFull="San Luis Obispo" />
+      <Carousel countyName="Ven" countyNameFull="Ventura" />
+      <Carousel countyName="River" countyNameFull="Riverside" />
+      <Carousel countyName="Imperial" countyNameFull="Imperial" />
+      <Carousel countyName="SanBar" countyNameFull="Santa Barbara" />
     </div>
   );
 };
