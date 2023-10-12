@@ -4,6 +4,9 @@ import "./Carousel.css";
 import { CountyObjectLoader } from "../../assets/CountyObjectLoader";
 import ArrowLeft from "../../assets/svg/ArrowLeft";
 import ArrowRight from "../../assets/svg/ArrowRight";
+import LocationModal from "../LocationModal/LocationModal";
+
+import { CountyObjectType } from "../../types/types";
 
 const Carousel = ({
   countyName,
@@ -15,12 +18,22 @@ const Carousel = ({
   const [carouselTranslation, setCarouselTranslation] = useState<
     [number, number]
   >([0, 0]); // [carousel index, carousel translation]
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [cardClicked, setCardClicked] = useState(false);
+  const [modalObjectInfo, setModalObjectInfo] = useState<CountyObjectType>({
+    name: "",
+    countyIndex: null,
+    countyNameShort: "",
+    countyNameFull: "",
+    image: null,
+    description: "",
+    tags: [],
+  });
 
   const slideAmount = CountyObjectLoader[countyName].length;
   const visibleCardLength = 4; // max num of cards in one row, minus one. Revise later to programmatically grab number
-  const cardWidth = window.innerWidth * 0.17;
-  const cardMargin = window.innerWidth * 0.005; // margin between cards
+  const cardHeight = 160;
+  const cardWidth = window.innerWidth * 0.165;
+  const cardMargin = window.innerWidth * 0.01; // margin between cards
   const carouselMargin = window.innerWidth * 0.0625; // margin on left of entire carousel
 
   const handleClickRight = (): void => {
@@ -63,8 +76,20 @@ const Carousel = ({
     });
   };
 
+  const handleModalClick = (countyObject: CountyObjectType) => {
+    setCardClicked(!cardClicked);
+    setModalObjectInfo(countyObject);
+  };
+
   return (
     <div className="carousel-outer-wrapper">
+      {cardClicked && (
+        <LocationModal
+          locationObject={modalObjectInfo}
+          stateVal={cardClicked}
+          setStateFN={setCardClicked}
+        />
+      )}
       {/* outer wrapper for white space around carousel */}
       <h1 className="carousel-header">{countyNameFull} County</h1>
       <div className="carousel-wrapper">
@@ -74,6 +99,7 @@ const Carousel = ({
               ? "carousel-left-button button-hidden"
               : "carousel-left-button button-visible"
           }
+          style={{ height: `${cardHeight}px` }}
           onClick={handleClickLeft}
         >
           <ArrowLeft className="carousel-button-arrow" />
@@ -84,6 +110,7 @@ const Carousel = ({
               ? "carousel-right-button button-hidden"
               : "carousel-right-button button-visible"
           }
+          style={{ height: `${cardHeight}px` }}
           onClick={handleClickRight}
         >
           <ArrowRight className="carousel-button-arrow" />
@@ -100,14 +127,15 @@ const Carousel = ({
               <div className="carousel-card-wrapper" key={index}>
                 <div
                   className="carousel-card"
+                  onClick={() => handleModalClick(county)}
                   style={
                     index < slideAmount - 1
                       ? {
-                          height: `${180}px`,
+                          height: `${cardHeight}px`,
                           width: `${cardWidth}px`,
                           marginRight: `${cardMargin}px`,
                         }
-                      : { height: `${180}px`, width: `${cardWidth}px` }
+                      : { height: `${cardHeight}px`, width: `${cardWidth}px` }
                   }
                 >
                   <img src={county.image} alt={`Location: ${county.name}`} />

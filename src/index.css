@@ -4,9 +4,15 @@
   margin: 0;
 }
 
+:root {
+  /* --base-color: rgba(11, 6, 23, 0.806); */
+  --base-color: rgb(43, 38, 57);
+  --highlight-color: rgba(130, 84, 238, 0.806);
+}
+
 body {
   /* background-color: #fcfcf4; */
-  background-color: rgba(11, 6, 23, 0.806);
+  background-color: var(--base-color);
 }
 
 h1, p {

@@ -24,7 +24,6 @@
 
 .carousel-left-button, .carousel-right-button {
     position: absolute;
-    height: 100%;
     width: 4%;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
@@ -70,7 +69,7 @@
 .carousel-card {
     /* height and width defined in corresponding tsx file */
     border-radius: 1rem;
-    border: 2px black solid;
+    border: 2px rgba(0, 0, 0, 0) solid;
     overflow: hidden;
     transform: scale(1.0);
     transition: transform 150ms ease-in-out;
@@ -81,7 +80,7 @@
 .carousel-card:hover {
     transform: scale(1.05);
     transition: transform 150ms ease-in-out;
-    outline: 2px solid white;
+    outline: 3px solid white;
 }
 
 .carousel-card > img {

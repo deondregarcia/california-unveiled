@@ -2,11 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./CategoryGrid.css";
 
 import GridFilterDropdown from "../GridFilterDropdown/GridFilterDropdown";
+import LocationModal from "../LocationModal/LocationModal";
 
 import { CountyObjectLoader } from "../../assets/CountyObjectLoader";
+import { CountyObjectType } from "../../types/types";
 
 const CategoryGrid = ({ category }: { category: string }) => {
   const [filterValues, setFilterValues] = useState<string[]>([]);
+  const [cardClicked, setCardClicked] = useState(false);
+  const [modalObjectInfo, setModalObjectInfo] = useState<CountyObjectType>({
+    name: "",
+    countyIndex: null,
+    countyNameShort: "",
+    countyNameFull: "",
+    image: null,
+    description: "",
+    tags: [],
+  });
 
   let categoryArray = [];
   let countyList: string[] = [];
@@ -26,8 +38,20 @@ const CategoryGrid = ({ category }: { category: string }) => {
     setFilterValues(countyList);
   }, []);
 
+  const handleModalClick = (countyObject: CountyObjectType) => {
+    setCardClicked(!cardClicked);
+    setModalObjectInfo(countyObject);
+  };
+
   return (
     <div className="grid-wrapper">
+      {cardClicked && (
+        <LocationModal
+          locationObject={modalObjectInfo}
+          stateVal={cardClicked}
+          setStateFN={setCardClicked}
+        />
+      )}
       <div className="grid-filter">
         <GridFilterDropdown
           filterValues={filterValues}
@@ -45,6 +69,7 @@ const CategoryGrid = ({ category }: { category: string }) => {
                   : "grid-card-container grid-hidden"
               }
               key={index}
+              onClick={() => handleModalClick(object)}
             >
               {/* <div className="grid-image-container"> */}
               <div className="grid-image-container">
