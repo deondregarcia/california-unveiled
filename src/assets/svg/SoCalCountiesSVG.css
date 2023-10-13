@@ -1,5 +1,6 @@
 .counties-svg {
     overflow: visible;
+    filter: drop-shadow(3px 5px 8px rgba(235, 173, 17, 0.3));
   }
 
 path {

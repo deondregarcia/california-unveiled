@@ -80,7 +80,9 @@ const CategoryGrid = ({ category }: { category: string }) => {
                 />
               </div>
               <h1>{object.name}</h1>
-              <p>{object.countyNameFull} County</p>
+              <p className="grid-image-county">
+                {object.countyNameFull} County
+              </p>
             </div>
           );
         })}

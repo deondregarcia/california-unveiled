@@ -5,9 +5,7 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <div>
-        <h1>SoCal Unveiled</h1>
-      </div>
+      <h1 className="navbar-title">SoCal Unveiled</h1>
       <div className="navbar-links-container">
         <ul>
           <Link to="/" className="navbar-link">

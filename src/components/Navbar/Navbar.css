@@ -1,10 +1,20 @@
 .navbar-container {
     height: 60px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    background-color: black;
+    background-color: rgb(4, 4, 4);
+    position: fixed;
+    top: 0;
+    z-index: 4;
+    border-bottom: 1px solid var(--highlight-color);
+}
+
+.navbar-title {
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: var(--highlight-color);
 }
 
 .navbar-links-container > ul {
@@ -13,17 +23,27 @@
 }
 
 .navbar-link {
-    padding: 5px 8px;
+    padding: 0px 5px;
     margin-left: 15px;
-    border-radius: 5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
     text-decoration: none;
+    transform: scale(1.0);
+    transition: transform 250ms ease;
 }
 
 .navbar-link:hover {
-    background-color: gray;
+    border-bottom: 2px solid var(--highlight-color);
     cursor: pointer;
+    transform: scale(1.06);
+    transition: transform 250ms ease;
 }
 
 .navbar-link-text {
     font-size: 20px;
+    transition: color 50ms ease;
+}
+
+.navbar-link-text:hover {
+    color: var(--highlight-color);
+    transition: color 50ms ease;
 }

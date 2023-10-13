@@ -1,28 +1,26 @@
 .landing-container {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .landing-container > h1 {
   font-family: 'Love Ya Like A Sister', cursive;
   font-size: 50px;
   text-align: center;
-  color: #daa520;
+  color: var(--highlight-color);
 }
 
 .landing {
   display: flex;
   justify-content: right;
-  /* background-color: green; */
   position: relative;
+  margin-bottom: 30px;
 }
 
 .county-overview-container {
-  /* background-color: blue; */
   width: 30vw;
-  /* overflow: hidden; */
   position: absolute;
-  left: 5vw;
-  top: 20%;
+  left: 4vw;
+  top: 12%;
 }
 
 .county-overview-container > h1 {
@@ -38,7 +36,8 @@
   height: 30vh;
   width: 50vw;
   position: absolute;
-  top: 20vh;
+  top: 27vh;
+  left: 4vw;
   display: flex;
   justify-content: space-around;
   /* background-color: red; */

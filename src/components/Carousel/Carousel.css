@@ -14,6 +14,7 @@
 
 .carousel-header {
     margin-left: 8vw;
+    margin-bottom: 5px;
 }
 
 .carousel-container {
@@ -80,7 +81,7 @@
 .carousel-card:hover {
     transform: scale(1.05);
     transition: transform 150ms ease-in-out;
-    outline: 3px solid white;
+    outline: 3px solid whitesmoke;
 }
 
 .carousel-card > img {

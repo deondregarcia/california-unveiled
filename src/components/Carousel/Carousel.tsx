@@ -140,7 +140,17 @@ const Carousel = ({
                 >
                   <img src={county.image} alt={`Location: ${county.name}`} />
                 </div>
-                <p>{county.name}</p>
+                <p
+                  style={
+                    index < slideAmount - 1
+                      ? {
+                          marginRight: `${cardMargin}px`,
+                        }
+                      : { marginRight: `0px` }
+                  }
+                >
+                  {county.name}
+                </p>
               </div>
             );
           })}
