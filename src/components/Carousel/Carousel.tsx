@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useRef } from "react";
+import React, { memo, useState, useEffect } from "react";
 import "./Carousel.css";
 
 import { CountyObjectLoader } from "../../assets/CountyObjectLoader";
@@ -7,6 +7,8 @@ import ArrowRight from "../../assets/svg/ArrowRight";
 import LocationModal from "../LocationModal/LocationModal";
 
 import { CountyObjectType } from "../../types/types";
+import Ellipsis from "../../assets/svg/Ellipsis";
+import EllipsisDropdown from "../EllipsisDropdown/EllipsisDropdown";
 
 const Carousel = ({
   countyName,
@@ -28,6 +30,12 @@ const Carousel = ({
     description: "",
     tags: [],
   });
+
+  // state for ellipsis dropdown
+  const [ellClicked, setEllClicked] = useState<[boolean, number | null]>([
+    false,
+    null,
+  ]);
 
   const slideAmount = CountyObjectLoader[countyName].length;
   const visibleCardLength = 4; // max num of cards in one row, minus one. Revise later to programmatically grab number
@@ -81,6 +89,16 @@ const Carousel = ({
     setModalObjectInfo(countyObject);
   };
 
+  const handleEllClicked = (idx: number) => {
+    let [bool, currIndex] = ellClicked;
+
+    if (idx === currIndex) {
+      setEllClicked([!bool, currIndex]);
+    } else {
+      setEllClicked([bool, idx]);
+    }
+  };
+
   return (
     <div className="carousel-outer-wrapper">
       {cardClicked && (
@@ -127,7 +145,6 @@ const Carousel = ({
               <div className="carousel-card-wrapper" key={index}>
                 <div
                   className="carousel-card"
-                  onClick={() => handleModalClick(county)}
                   style={
                     index < slideAmount - 1
                       ? {
@@ -138,7 +155,21 @@ const Carousel = ({
                       : { height: `${cardHeight}px`, width: `${cardWidth}px` }
                   }
                 >
-                  <img src={county.image} alt={`Location: ${county.name}`} />
+                  <Ellipsis
+                    onClick={() => handleEllClicked(index)}
+                    className="carousel-card-ellipsis"
+                  />
+                  {ellClicked[0] === true && ellClicked[1] === index && (
+                    <EllipsisDropdown
+                      locationObject={county}
+                      setStateFN={setEllClicked}
+                    />
+                  )}
+                  <img
+                    onClick={() => handleModalClick(county)}
+                    src={county.image}
+                    alt={`Location: ${county.name}`}
+                  />
                 </div>
                 <p
                   style={

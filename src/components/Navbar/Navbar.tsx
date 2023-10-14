@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import ProfileIcon from "../../assets/svg/ProfileIcon";
+import ListIcon from "../../assets/svg/ListIcon";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <h1 className="navbar-title">SoCal Unveiled</h1>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <h1 className="navbar-title">SoCal Unveiled</h1>
+      </Link>
       <div className="navbar-links-container">
         <ul>
           <Link to="/" className="navbar-link">
@@ -35,9 +39,18 @@ const Navbar = () => {
           </Link>
         </ul>
       </div>
-      <Link to="my-account" className="navbar-link">
-        <h1>My Account</h1>
-      </Link>
+      <div className="navbar-right">
+        <Link to="my-list" className="navbar-right-link">
+          <div className="list-icon-wrapper">
+            <ListIcon className="list-icon" />
+          </div>
+        </Link>
+        <Link to="my-account" className="navbar-right-link">
+          <div className="profile-icon-wrapper">
+            <ProfileIcon />
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };

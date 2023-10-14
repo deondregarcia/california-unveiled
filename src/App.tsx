@@ -12,6 +12,7 @@ import Nature from "./pages/Nature/Nature";
 import TypicalTourist from "./pages/TypicalTourist/TypicalTourist";
 import HiddenGems from "./pages/HiddenGems/HiddenGems";
 import MyAccount from "./pages/MyAccount/MyAccount";
+import MyList from "./pages/MyList/MyList";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/typical-tourist" element={<TypicalTourist />} />
         <Route path="/hidden-gems" element={<HiddenGems />} />
         <Route path="/my-account" element={<MyAccount />} />
+        <Route path="/my-list" element={<MyList />} />
       </Routes>
     </>
   );

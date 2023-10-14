@@ -1,10 +1,12 @@
 import { CountyTagsType } from "../types/types";
 
+// hiddenGems, typicalTourist, sightseeing, nature
+
 export const CountyTags: CountyTagsType = {
-  Kern: ["hiddenGems"],
-  SanLuis: ["hiddenGems"],
-  SanBar: ["hiddenGems"],
-  Ven: ["hiddenGems"],
+  Kern: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  SanLuis: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  SanBar: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  Ven: ["hiddenGems", "hiddenGems", "hiddenGems"],
   LosAng: [
     ["typicalTourist", "sightseeing"],
     "hiddenGems",
@@ -14,9 +16,9 @@ export const CountyTags: CountyTagsType = {
     "hiddenGems",
     "hiddenGems",
   ],
-  SanBern: ["hiddenGems"],
-  River: ["hiddenGems"],
-  Orange: ["hiddenGems"],
-  Imperial: ["hiddenGems"],
-  SanDiego: ["hiddenGems"],
+  SanBern: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  River: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  Orange: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  Imperial: ["hiddenGems", "hiddenGems", "hiddenGems"],
+  SanDiego: ["hiddenGems", "hiddenGems", "hiddenGems"],
 };

@@ -1,0 +1,19 @@
+.ellipsis-dropdown-container {
+    height: 30px;
+    width: 130px;
+    position: absolute;
+    right: 0;
+    margin: 2.5rem 0.3rem;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 10;
+    user-select: none;
+}
+
+.ellipsis-add > p, .ellipsis-already-added > p {
+    color: black;
+}
+
+.ellipsis-add:hover {
+    background-color: gray;
+}

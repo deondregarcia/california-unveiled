@@ -47,3 +47,41 @@
     color: var(--highlight-color);
     transition: color 50ms ease;
 }
+
+.navbar-right {
+    display: flex;
+}
+
+.navbar-right-link {
+    text-decoration: none;
+    margin: 0px 10px;
+}
+
+.list-icon-wrapper {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--highlight-color);
+    stroke: var(--highlight-color);
+}
+
+.list-icon:hover {
+    fill: white;
+    stroke: white;
+}
+
+.profile-icon-wrapper {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--highlight-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-icon-wrapper:hover {
+    background-color: white;
+}
