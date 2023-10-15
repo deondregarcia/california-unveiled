@@ -8,6 +8,7 @@
   --base-color: rgb(37, 34, 44);
   --highlight-color: rgb(235, 173, 17);
   --svg-fill: rgb(163, 124, 25);
+  --opaque-white: rgb(255,255,255,0.6);
 }
 
 body {

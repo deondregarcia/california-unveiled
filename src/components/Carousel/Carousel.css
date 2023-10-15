@@ -15,6 +15,65 @@
 .carousel-header {
     margin-left: 8vw;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-addall-container {
+    width: 370px;
+    height: 30px;
+    margin-left: 1rem;
+    display: flex;
+    align-items: end;
+    user-select: none;
+    cursor: pointer;
+    /* background-color: green; */
+}
+
+.carousel-addall-container > p {
+    color: rgb(255, 255, 255, 0.6);
+    font-size: 1rem;
+}
+
+.carousel-addall-arrow {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--opaque-white);
+    stroke: var(--opaque-white);
+}
+
+.carousel-addall-confirm-inactive {
+    opacity: 0;
+}
+
+.carousel-addall-confirm {
+    opacity: 1;
+    transition: opacity 1000ms 100ms ease;
+    display: flex;
+    align-items: end;
+}
+
+.carousel-addall-confirm-yes, .carousel-addall-confirm-no {
+    margin-left: 10px;
+    padding: 2px;
+    border: 1px solid var(--opaque-white);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+}
+
+.carousel-addall-confirm-yes > p, .carousel-addall-confirm-no > p {
+    font-size: 13px;
+}
+
+.carousel-addall-confirm-yes:hover {
+    background-color: green;
+}
+
+.carousel-addall-confirm-no:hover {
+    background-color: red;
 }
 
 .carousel-container {

@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useContext } from "react";
 import "./Carousel.css";
 
 import { CountyObjectLoader } from "../../assets/CountyObjectLoader";
@@ -9,6 +9,8 @@ import LocationModal from "../LocationModal/LocationModal";
 import { CountyObjectType } from "../../types/types";
 import Ellipsis from "../../assets/svg/Ellipsis";
 import EllipsisDropdown from "../EllipsisDropdown/EllipsisDropdown";
+
+import ListContext from "../ListContext/ListContext";
 
 const Carousel = ({
   countyName,
@@ -36,6 +38,11 @@ const Carousel = ({
     false,
     null,
   ]);
+
+  // state for "add all" button
+  const [addAllClicked, setAddAllClicked] = useState(false);
+
+  const { locationList, setLocationList } = useContext(ListContext);
 
   const slideAmount = CountyObjectLoader[countyName].length;
   const visibleCardLength = 4; // max num of cards in one row, minus one. Revise later to programmatically grab number
@@ -99,6 +106,18 @@ const Carousel = ({
     }
   };
 
+  // for adding all county locations to My List
+  const handleAddAll = () => {
+    setAddAllClicked(false);
+
+    let tempArray: CountyObjectType[] = [];
+    CountyObjectLoader[countyName].forEach((location, index) => {
+      if (!locationList.includes(location)) tempArray.push(location);
+    });
+
+    setLocationList((prev: CountyObjectType[]) => [...prev, ...tempArray]);
+  };
+
   return (
     <div className="carousel-outer-wrapper">
       {cardClicked && (
@@ -109,7 +128,41 @@ const Carousel = ({
         />
       )}
       {/* outer wrapper for white space around carousel */}
-      <h1 className="carousel-header">{countyNameFull} County</h1>
+      <div className="carousel-header">
+        <h1>{countyNameFull} County</h1>
+        <div
+          className="carousel-addall-container"
+          onClick={() => setAddAllClicked(!addAllClicked)}
+        >
+          <p>Add all to My List</p>
+          <ArrowRight className="carousel-addall-arrow" />
+          <div
+            className={
+              addAllClicked
+                ? "carousel-addall-confirm"
+                : "carousel-addall-confirm-inactive"
+            }
+          >
+            <p>Are you sure?</p>
+            {addAllClicked && (
+              <>
+                <div
+                  onClick={handleAddAll}
+                  className="carousel-addall-confirm-yes"
+                >
+                  <p>Yes</p>
+                </div>
+                <div
+                  onClick={() => setAddAllClicked(false)}
+                  className="carousel-addall-confirm-no"
+                >
+                  <p>No</p>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="carousel-wrapper">
         <div
           className={
