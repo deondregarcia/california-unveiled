@@ -4,7 +4,7 @@ import "./LocationModal.css";
 
 import { CountyObjectType } from "../../types/types";
 
-// to be used with createPortal
+// to be used with createPortal in below component
 const LocationModalComponent = ({
   locationObject,
   stateVal,
