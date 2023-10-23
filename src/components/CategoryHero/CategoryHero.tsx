@@ -6,20 +6,32 @@ const CategoryHero = ({ category }: { category: string }) => {
   let description = "";
 
   switch (category) {
-    case "hiddenGems":
-      title = "Hidden Gems";
+    case "sightseeing":
+      title = "Sightseeing";
+      break;
+    case "nature":
+      title = "Nature";
       break;
     case "typicalTourist":
       title = "Typical Tourist";
       break;
+    case "hiddenGems":
+      title = "Hidden Gems";
+      break;
   }
 
   switch (category) {
-    case "hiddenGems":
-      description = "Hidden Gems description lorem";
+    case "sightseeing":
+      description = "Sightseeing description lorem";
+      break;
+    case "nature":
+      description = "Nature description lorem";
       break;
     case "typicalTourist":
       description = "Typical Tourist";
+      break;
+    case "hiddenGems":
+      description = "Hidden Gems description lorem";
       break;
   }
 
