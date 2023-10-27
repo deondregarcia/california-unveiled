@@ -4,14 +4,22 @@
     position: absolute;
     right: 0;
     margin: 2.5rem 0.3rem;
-    background-color: white;
+    background-color: var(--base-color);
     border-radius: 5px;
     z-index: 10;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.ellipsis-add > p, .ellipsis-already-added > p {
-    color: black;
+.ellipsis-add {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ellipsis-add:hover {

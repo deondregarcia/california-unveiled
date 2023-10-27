@@ -21,7 +21,7 @@ const EllipsisDropdown = ({
     <div className="ellipsis-dropdown-container">
       {locationList.includes(locationObject) ? (
         <div className="ellipsis-already-added">
-          <p>Added</p>
+          <p>Added!</p>
         </div>
       ) : (
         <div onClick={handleAddClicked} className="ellipsis-add">

@@ -97,13 +97,15 @@ const Carousel = ({
   };
 
   const handleEllClicked = (idx: number) => {
-    let [bool, currIndex] = ellClicked;
+    setEllClicked((prev) => {
+      let [bool, currIndex] = prev;
 
-    if (idx === currIndex) {
-      setEllClicked([!bool, currIndex]);
-    } else {
-      setEllClicked([bool, idx]);
-    }
+      if (idx === currIndex) {
+        return [!bool, currIndex];
+      } else {
+        return [!bool, idx];
+      }
+    });
   };
 
   // for adding all county locations to My List
