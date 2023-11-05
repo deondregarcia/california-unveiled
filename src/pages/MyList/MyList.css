@@ -1,64 +1,73 @@
-.mylist-container {
+.mylist-wrapper {
     margin-top: 100px;
     height: 500px;
-    width: 80vw;
     display: flex;
-    margin-left: 10vw;
+    justify-content: center;
 }
 
-.mylist-container > ul > li {
-    list-style: none;
-    margin-top: 5vh;
+.mylist-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    column-gap: 1vw;
+    row-gap: 2vh;
+}
+
+.mylist-item-container {
+    width: 45vw;
+    height: 250px;
     display: flex;
+    justify-content: space-between;
     border: 1px solid rgb(255,255,255,0.3);
-    border-radius: 3rem;
-    padding: 2rem 4rem;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
     position: relative;
 }
 
-.trash-icon-wrapper {
-    position: absolute;
-    right: 2rem;
-    height: 1.8rem;
-    width: 1.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+
+.mylist-item-image-container {
+    width: 50%;
 }
 
-.trash-icon {
-    fill: red;
-    stroke: red;
-}
-
-.mylist-left {
-    display: flex;
-    flex-direction: column;
-}
-
-.mylist-left > img {
-    height: 20vh;
-    width: 30vw;
+.mylist-image {
+    height: 80%;
+    width: 100%;
     object-fit: cover;
-    border-radius: 1rem;
+    border-radius: 8px;
 }
 
-.mylist-left > h1 {
+.mylist-item-text-header {
     text-align: center;
-    font-size: 1.2rem;
-    margin-top: 0.2rem;
-    opacity: 0.9;
 }
 
-.mylist-right {
-    margin-left: 5vw;
+.mylist-item-text-header > h1 {
+    font-size: 1rem;
 }
 
-.mylist-right > h1 {
-    font-size: 2rem;
+.mylist-item-text-header > h3 {
+    font-size: 0.8rem;
+    opacity: 0.5;
 }
 
-.mylist-right > p {
-    margin-top: 1rem;
+.mylist-item-desc > h3 {
+    font-size: 1rem;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.mylist-item-desc {
+    width: 40%;
+    font-size: 0.9rem;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1000px) {
+    .mylist-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .mylist-item-container {
+        width: 90vw;
+    }
 }

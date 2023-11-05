@@ -51,15 +51,17 @@ const Landing = () => {
   return (
     <div className="landing-container">
       <h1>SoCal Unveiled</h1>
+      <p>For those who want an adventure without the price tag</p>
       <div className="landing">
         <div className="county-overview-container">
-          <h1>{countyNameArray[countyIndex]}</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            quaerat quam nesciunt a debitis harum ipsa sed? Adipisci soluta vel,
-            accusantium, dolorem nesciunt qui nostrum, id officia laboriosam
-            architecto similique.
+            Often times when we grow up or live in one area for quite a long
+            time we begin to feel like we have seen all there is to see and have
+            done all there is to do. SoCal Unveiled is a rebuttal to the notion
+            that you have to travel to places like Japan or France to seek
+            adventure
           </p>
+          <p>{countyNameArray[countyIndex]}</p>
           <div className="overview-images-container">
             {ImageDir[countyStringIDArray[countyIndex]]
               ?.slice(0, 3)
