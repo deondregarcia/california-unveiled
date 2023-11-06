@@ -14,8 +14,9 @@
     height: 70vh;
     width: 40vw;
     position: relative;
-    background-color: white;
+    background-color: var(--base-color);
     border-radius: 1rem;
+    border: 2px solid whitesmoke;
     z-index: 6;
     display: flex;
     flex-direction: column;
@@ -23,15 +24,15 @@
 }
 
 .modal-title {
-    color: black;
     font-size: 2rem;
     text-align: center;
     margin-top: 4vh;
 }
 
 .modal-image {
-    margin-top: 3vh;
-    height: auto;
+    margin-top: 2vh;
+    height: 40%;
+    /* height: auto; */
     max-height: 50%;
     width: 70%;
     border: 2px solid black;
@@ -40,36 +41,43 @@
 }
 
 .modal-county {
-    color: black;
     font-family: Poppins-LightItalic;
 }
 
 .modal-description-wrapper {
-    margin-top: 2vh;
+    margin-top: 1vh;
     width: 80%;
 }
 
 .modal-description-wrapper > h1 {
-    color: black;
     text-align: center;
 }
 
 .modal-description {
-    color: black;
+    /* color: black; */
 }
 
-.modal-exit {
+.modal-add-to-list {
+    background-color: whitesmoke;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.modal-add-to-list > h3 {
+    color: var(--base-color);
+}
+
+.modal-exit-icon {
+    height: 2.5rem;
+    width: 2.5rem;
     position: absolute;
     top: 0;
     right: 0;
     margin: 1rem 1.5rem;
     cursor: pointer;
-    padding: 5px 8px;
-    border-radius: 10px;
-    background-color: gray;
-}
-
-.modal-exit > h1 {
-    color: black;
-    font-size: 2rem;
+    fill: whitesmoke;
 }

@@ -7,12 +7,26 @@ import TrashIcon from "../../assets/svg/TrashIcon";
 const MyList = () => {
   const { locationList, setLocationList } = useContext(ListContext);
 
+  const handleRemoveListItem = (locationName: string) => {
+    setLocationList((prev: CountyObjectType[]) => {
+      let newArray: CountyObjectType[] = [];
+      prev.forEach((object: CountyObjectType) => {
+        if (object.name !== locationName) newArray.push(object);
+      });
+      return newArray;
+    });
+  };
+
   return (
     <div className="mylist-wrapper">
       <div className="mylist-container">
-        {locationList.map((location: CountyObjectType, index: number) => {
+        {locationList?.map((location: CountyObjectType, index: number) => {
           return (
             <div className="mylist-item-container">
+              <TrashIcon
+                onClick={() => handleRemoveListItem(location.name)}
+                className="mylist-trash-icon"
+              />
               <div className="mylist-item-image-container">
                 <img className="mylist-image" src={location.image} />
                 <div className="mylist-item-text-header">

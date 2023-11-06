@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
+import ListContext from "../ListContext/ListContext";
 import "./LocationModal.css";
+
+import ExitIcon from "../../assets/svg/ExitIcon";
 
 import { CountyObjectType } from "../../types/types";
 
@@ -14,10 +17,18 @@ const LocationModalComponent = ({
   stateVal: boolean;
   setStateFN: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const { locationList, setLocationList } = useContext(ListContext);
+
   const handleEscapeKey = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       setStateFN(false);
     }
+  };
+
+  const handleModalAddToList = (object: CountyObjectType) => {
+    setLocationList((prev: CountyObjectType[]) => {
+      return [...prev, object];
+    });
   };
 
   useEffect(() => {
@@ -41,9 +52,25 @@ const LocationModalComponent = ({
           <h1>Description</h1>
           <p className="modal-description">{locationObject.description}</p>
         </div>
-        <div className="modal-exit" onClick={() => setStateFN(!stateVal)}>
-          <h1>X</h1>
-        </div>
+
+        {/* below is either "add to list" or "added" button */}
+        {locationList.includes(locationObject) ? (
+          <div className="modal-add-to-list">
+            <h3>Added to List!</h3>
+          </div>
+        ) : (
+          <div
+            className="modal-add-to-list"
+            onClick={() => handleModalAddToList(locationObject)}
+          >
+            <h3>Add to My List?</h3>
+          </div>
+        )}
+
+        <ExitIcon
+          className="modal-exit-icon"
+          onClick={() => setStateFN(!stateVal)}
+        />
       </div>
     </div>
   );
