@@ -32,7 +32,6 @@
 .modal-image {
     margin-top: 2vh;
     height: 40%;
-    /* height: auto; */
     max-height: 50%;
     width: 70%;
     border: 2px solid black;
@@ -42,6 +41,8 @@
 
 .modal-county {
     font-family: Poppins-LightItalic;
+    font-size: 1.5rem;
+    color: var(--opaque-white);
 }
 
 .modal-description-wrapper {
@@ -51,10 +52,6 @@
 
 .modal-description-wrapper > h1 {
     text-align: center;
-}
-
-.modal-description {
-    /* color: black; */
 }
 
 .modal-add-to-list {
@@ -80,4 +77,27 @@
     margin: 1rem 1.5rem;
     cursor: pointer;
     fill: whitesmoke;
+}
+
+@media screen and (max-width: 1300px) {
+    .modal-container {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .modal-image {
+        height: 25%;
+    }
+    .modal-title {
+        font-size: 1.7rem;
+        margin-top: 6vh;
+        max-width: 90%;
+    }
+    .modal-county {
+        font-size: 1.2rem;
+    }
+    .modal-description-wrapper > h1 {
+        font-size: 1.5rem;
+    }
 }

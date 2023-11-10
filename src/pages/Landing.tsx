@@ -55,11 +55,11 @@ const Landing = () => {
       <div className="landing">
         <div className="county-overview-container">
           <p>
-            Often times when we grow up or live in one area for quite a long
-            time we begin to feel like we have seen all there is to see and have
-            done all there is to do. SoCal Unveiled is a rebuttal to the notion
-            that you have to travel to places like Japan or France to seek
-            adventure
+            People often dream about travelling abroad in search of novel
+            adventures. SoCal Unveiled is a rebuttal to the notion that you can
+            only find new experiences with expensive plane tickets. Here you'll
+            find tons of new places to explore with only a few hours' drive
+            investment.
           </p>
           <p>{countyNameArray[countyIndex]}</p>
           <div className="overview-images-container">

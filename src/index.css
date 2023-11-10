@@ -11,6 +11,10 @@
   --opaque-white: rgb(255,255,255,0.6);
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   background-color: var(--base-color);
 }
@@ -28,4 +32,10 @@ h1, h3,  p {
 @font-face {
   font-family: "Poppins-LightItalic";
   src: url("./assets/fonts/Poppins/Poppins-LightItalic.ttf") format("truetype");
+}
+
+@media screen and (max-width: 1500px) {
+  html {
+    font-size: 75%;
+  }
 }
