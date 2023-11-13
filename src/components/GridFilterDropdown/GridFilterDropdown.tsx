@@ -39,15 +39,7 @@ const GridFilterDropdown = ({
           className="filter-textbox"
           onClick={() => setFilterActive(!filterActive)}
         >
-          <p>
-            {filterValues.length === countyList.length
-              ? "All Selected"
-              : filterValues.length > 1
-              ? "Multiple Selected"
-              : filterValues.length === 1
-              ? "One Selected"
-              : "None Selected"}
-          </p>
+          <p>Filter by County</p>
         </div>
         <div
           className="filter-arrow-container"

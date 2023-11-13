@@ -5,17 +5,17 @@ import { ImageDir } from "../assets/images/ImageDirectory";
 import "./Landing.css";
 
 const countyNameArray = [
-  "Kern",
-  "San Luis Obispo",
-  "Santa Barbara",
-  "Ventura",
-  "Los Angeles",
-  "San Bernardino",
-  "Riverside",
-  "Orange",
-  "Imperial",
-  "San Diego",
-  "Tap on a county",
+  "Kern County",
+  "San Luis Obispo County",
+  "Santa Barbara County",
+  "Ventura County",
+  "Los Angeles County",
+  "San Bernardino County",
+  "Riverside County",
+  "Orange County",
+  "Imperial County",
+  "San Diego County",
+  "Hover over a county",
 ];
 
 const countyStringIDArray = [
@@ -54,39 +54,40 @@ const Landing = () => {
       <p>For those who want an adventure without the price tag</p>
       <div className="landing">
         <div className="county-overview-container">
+          {/* <h3>What is SoCal Unveiled?</h3> */}
           <p>
             People often dream about travelling abroad in search of novel
-            adventures. SoCal Unveiled is a rebuttal to the notion that you can
-            only find new experiences with expensive plane tickets. Here you'll
-            find tons of new places to explore with only a few hours' drive
-            investment.
+            adventures, but what about right here at home?{" "}
+            <b className="text-highlight">SoCal Unveiled</b> provides you with
+            tons of <b className="text-highlight">new places to explore</b> -
+            all without the price tag of a plane ticket.
           </p>
-          <p>{countyNameArray[countyIndex]}</p>
-          <div className="overview-images-container">
-            {ImageDir[countyStringIDArray[countyIndex]]
-              ?.slice(0, 3)
-              .map((image, index) => {
-                return (
-                  <img
-                    className={
-                      index === 1
-                        ? "overview-image second-image"
-                        : "overview-image"
-                    }
-                    style={{
-                      animation: `fade-in ${
-                        800 + 250 * index
-                      }ms ease-in-out, bounce 3000ms ${
-                        1000 + 300 * index
-                      }ms ease-in-out infinite`,
-                    }}
-                    src={image}
-                    key={index}
-                    alt={`${countyNameArray[countyIndex]} County`}
-                  />
-                );
-              })}
-          </div>
+        </div>
+        <div className="overview-images-container">
+          <h3>{countyNameArray[countyIndex]}</h3>
+          {ImageDir[countyStringIDArray[countyIndex]]
+            ?.slice(0, 3)
+            .map((image, index) => {
+              return (
+                <img
+                  className={
+                    index === 1
+                      ? "overview-image second-image"
+                      : "overview-image"
+                  }
+                  style={{
+                    animation: `fade-in ${
+                      800 + 250 * index
+                    }ms ease-in-out, bounce 3000ms ${
+                      1000 + 300 * index
+                    }ms ease-in-out infinite`,
+                  }}
+                  src={image}
+                  key={index}
+                  alt={`${countyNameArray[countyIndex]} County`}
+                />
+              );
+            })}
         </div>
         <div className="map-container">
           <SoCalCountiesSVG

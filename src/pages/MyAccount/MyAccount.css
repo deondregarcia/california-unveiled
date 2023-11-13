@@ -1,0 +1,8 @@
+.myaccount-wrapper {
+    margin-top: 100px;
+    height: 101vh;
+}
+
+.myaccount-wrapper > h1 {
+    text-align: center;
+}

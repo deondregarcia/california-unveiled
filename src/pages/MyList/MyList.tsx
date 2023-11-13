@@ -19,87 +19,41 @@ const MyList = () => {
 
   return (
     <div className="mylist-wrapper">
-      <div className="mylist-container">
-        {locationList?.map((location: CountyObjectType, index: number) => {
-          return (
-            <div className="mylist-item-container">
-              <TrashIcon
-                onClick={() => handleRemoveListItem(location.name)}
-                className="mylist-trash-icon"
-              />
-              <div className="mylist-item-image-container">
-                <img className="mylist-image" src={location.image} />
-                <div className="mylist-item-text-header">
-                  <h1>{location.name}</h1>
-                  <h3>{location.countyNameFull} County</h3>
+      <div className="mylist-header">
+        <h1> My List </h1>
+      </div>
+
+      {locationList.length > 0 ? (
+        <div className="mylist-container">
+          {locationList?.map((location: CountyObjectType, index: number) => {
+            return (
+              <div className="mylist-item-container">
+                <TrashIcon
+                  onClick={() => handleRemoveListItem(location.name)}
+                  className="mylist-trash-icon"
+                />
+                <div className="mylist-item-image-container">
+                  <img className="mylist-image" src={location.image} />
+                  <div className="mylist-item-text-header">
+                    <h1>{location.name}</h1>
+                    <h3>{location.countyNameFull} County</h3>
+                  </div>
+                </div>
+                <div className="mylist-item-desc">
+                  <h3>Description</h3>
+                  <p>{location.description}</p>
                 </div>
               </div>
-              <div className="mylist-item-desc">
-                <h3>Description</h3>
-                <p>{location.description}</p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="mylist-empty">
+          <h1>Your list is empty - add some new locations!</h1>
+        </div>
+      )}
     </div>
   );
 };
-
-// ---------------------- the below is the first version -------------
-
-// const MyListItem = ({
-//   location,
-//   index,
-// }: {
-//   location: CountyObjectType;
-//   index: number;
-// }) => {
-//   const [deleteActive, setDeleteActive] = useState(false);
-
-//   return (
-//     <li key={index}>
-//       <div
-//         className={
-//           deleteActive
-//             ? "trash-icon-wrapper delete-active"
-//             : "trash-icon-wrapper"
-//         }
-//       >
-//         <TrashIcon className="trash-icon" />
-//       </div>
-//       <div className="mylist-left">
-//         <img src={location.image} alt={`${location.name}`} />
-//         <h1>{location.countyNameFull} County</h1>
-//       </div>
-//       <div className="mylist-right">
-//         <h1>{location.name}</h1>
-//         <p>{location.description}</p>
-//       </div>
-//     </li>
-//   );
-// };
-
-// const MyList = () => {
-//   const { locationList, setLocationList } = useContext(ListContext);
-
-//   return (
-//     <div className="mylist-container">
-//       <ul>
-//         {/* if locationList is empty */}
-//         {locationList.length === 0 && (
-//           <li>
-//             <h1>List Empty</h1>
-//           </li>
-//         )}
-
-//         {/* if locationList has items */}
-//         {locationList.map((locationObject: CountyObjectType, index: number) => {
-//           return <MyListItem location={locationObject} index={index} />;
-//         })}
-//       </ul>
-//     </div>
-//   );
-// };
 
 export default MyList;
