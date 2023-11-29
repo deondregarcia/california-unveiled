@@ -45,11 +45,6 @@ const Navbar = () => {
             <ListIcon className="list-icon" />
           </div>
         </Link>
-        <Link to="my-account" className="navbar-right-link">
-          <div className="profile-icon-wrapper">
-            <ProfileIcon />
-          </div>
-        </Link>
       </div>
     </div>
   );

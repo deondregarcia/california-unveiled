@@ -2,13 +2,6 @@
     margin-top: 100px;
 }
 
-.landing-container > h1 {
-  font-family: 'Love Ya Like A Sister', cursive;
-  font-size: 50px;
-  text-align: center;
-  color: var(--highlight-color);
-}
-
 .landing-container > p {
   text-align: center;
 }
@@ -23,13 +16,24 @@
 .county-overview-container {
   width: 48vw;
   position: absolute;
-  left: 6vw;
-  bottom: 12%;
+  left: 5vw;
+  bottom: 3%;
+}
+
+.county-overview-container > h1 {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 50px;
+  text-align: center;
+  color: var(--highlight-color);
 }
 
 .county-overview-container > p {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.hover-insight {
+  opacity: 0.5;
 }
 
 .text-highlight {
@@ -50,12 +54,11 @@
   position: absolute;
   font-size: 1.8rem;
   text-align: center;
-  /* margin-left: 5vw; */
 }
 
 .overview-image {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   object-fit: cover;
   border: solid 5px rgba(0, 0, 0, 1);
   border-radius: 50%;

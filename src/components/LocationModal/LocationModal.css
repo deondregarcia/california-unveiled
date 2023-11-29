@@ -55,7 +55,7 @@
 }
 
 .modal-add-to-list {
-    background-color: whitesmoke;
+    background-color: rgb(245, 245, 245);
     padding: 5px 10px;
     border-radius: 10px;
     position: absolute;
@@ -65,7 +65,8 @@
 }
 
 .modal-add-to-list > h3 {
-    color: var(--base-color);
+    color: black;
+    font-size: 1.5rem;
 }
 
 .modal-exit-icon {

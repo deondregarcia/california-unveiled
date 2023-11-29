@@ -44,7 +44,12 @@ const Carousel = ({
   // state for "add all" button
   const [addAllClicked, setAddAllClicked] = useState(false);
 
-  const { locationList, setLocationList } = useContext(ListContext);
+  const {
+    locationList,
+    setLocationList,
+    countyFullAddList,
+    setCountyFullAddList,
+  } = useContext(ListContext);
 
   const slideAmount = CountyObjectLoader[countyName].length;
   // const visibleCardLength = 4; // max num of cards in one row, minus one.
@@ -155,6 +160,7 @@ const Carousel = ({
     });
 
     setLocationList((prev: CountyObjectType[]) => [...prev, ...tempArray]);
+    setCountyFullAddList((prev: string[]) => [...prev, countyNameFull]);
   };
 
   // the following has two divs, one for mobile devices and one for regular desktop
@@ -174,38 +180,42 @@ const Carousel = ({
           {/* outer wrapper for white space around carousel */}
           <div className="carousel-header">
             <h1>{countyNameFull} County</h1>
-            <div
-              className="carousel-addall-container"
-              onClick={() => setAddAllClicked(!addAllClicked)}
-            >
-              <p>Add all to My List</p>
-              <ArrowRight className="carousel-addall-arrow" />
+            {countyFullAddList.includes(countyNameFull) ? (
+              <p className="carousel-addall-added">All locations added!</p>
+            ) : (
               <div
-                className={
-                  addAllClicked
-                    ? "carousel-addall-confirm"
-                    : "carousel-addall-confirm-inactive"
-                }
+                className="carousel-addall-container"
+                onClick={() => setAddAllClicked(!addAllClicked)}
               >
-                <p>Are you sure?</p>
-                {addAllClicked && (
-                  <>
-                    <div
-                      onClick={handleAddAll}
-                      className="carousel-addall-confirm-yes"
-                    >
-                      <p>Yes</p>
-                    </div>
-                    <div
-                      onClick={() => setAddAllClicked(false)}
-                      className="carousel-addall-confirm-no"
-                    >
-                      <p>No</p>
-                    </div>
-                  </>
-                )}
+                <p>Add all to My List</p>
+                <ArrowRight className="carousel-addall-arrow" />
+                <div
+                  className={
+                    addAllClicked
+                      ? "carousel-addall-confirm"
+                      : "carousel-addall-confirm-inactive"
+                  }
+                >
+                  <p>Are you sure?</p>
+                  {addAllClicked && (
+                    <>
+                      <div
+                        onClick={handleAddAll}
+                        className="carousel-addall-confirm-yes"
+                      >
+                        <p>Yes</p>
+                      </div>
+                      <div
+                        onClick={() => setAddAllClicked(false)}
+                        className="carousel-addall-confirm-no"
+                      >
+                        <p>No</p>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <div className="carousel-wrapper">
             <div
@@ -301,38 +311,42 @@ const Carousel = ({
           {/* outer wrapper for white space around carousel */}
           <div className="carousel-header">
             <h1>{countyNameFull} County</h1>
-            <div
-              className="carousel-addall-container"
-              onClick={() => setAddAllClicked(!addAllClicked)}
-            >
-              <p>Add all to My List</p>
-              <ArrowRight className="carousel-addall-arrow" />
+            {countyFullAddList.includes(countyNameFull) ? (
+              <p className="carousel-addall-added">All locations added!</p>
+            ) : (
               <div
-                className={
-                  addAllClicked
-                    ? "carousel-addall-confirm"
-                    : "carousel-addall-confirm-inactive"
-                }
+                className="carousel-addall-container"
+                onClick={() => setAddAllClicked(!addAllClicked)}
               >
-                <p>Are you sure?</p>
-                {addAllClicked && (
-                  <>
-                    <div
-                      onClick={handleAddAll}
-                      className="carousel-addall-confirm-yes"
-                    >
-                      <p>Yes</p>
-                    </div>
-                    <div
-                      onClick={() => setAddAllClicked(false)}
-                      className="carousel-addall-confirm-no"
-                    >
-                      <p>No</p>
-                    </div>
-                  </>
-                )}
+                <p>Add all to My List</p>
+                <ArrowRight className="carousel-addall-arrow" />
+                <div
+                  className={
+                    addAllClicked
+                      ? "carousel-addall-confirm"
+                      : "carousel-addall-confirm-inactive"
+                  }
+                >
+                  <p>Are you sure?</p>
+                  {addAllClicked && (
+                    <>
+                      <div
+                        onClick={handleAddAll}
+                        className="carousel-addall-confirm-yes"
+                      >
+                        <p>Yes</p>
+                      </div>
+                      <div
+                        onClick={() => setAddAllClicked(false)}
+                        className="carousel-addall-confirm-no"
+                      >
+                        <p>No</p>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <div className="carousel-wrapper">
             <div

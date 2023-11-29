@@ -15,7 +15,6 @@ const countyNameArray = [
   "Orange County",
   "Imperial County",
   "San Diego County",
-  "Hover over a county",
 ];
 
 const countyStringIDArray = [
@@ -50,11 +49,12 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      <h1>SoCal Unveiled</h1>
-      <p>For those who want an adventure without the price tag</p>
+      {/* <h1>SoCal Unveiled</h1>
+      <p>For those who want an adventure without the price tag</p> */}
       <div className="landing">
         <div className="county-overview-container">
           {/* <h3>What is SoCal Unveiled?</h3> */}
+          <h1>SoCal Unveiled</h1>
           <p>
             People often dream about travelling abroad in search of novel
             adventures, but what about right here at home?{" "}
@@ -62,6 +62,7 @@ const Landing = () => {
             tons of <b className="text-highlight">new places to explore</b> -
             all without the price tag of a plane ticket.
           </p>
+          <p className="hover-insight">(Hover over a county)</p>
         </div>
         <div className="overview-images-container">
           <h3>{countyNameArray[countyIndex]}</h3>

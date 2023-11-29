@@ -19,6 +19,13 @@
     align-items: center;
 }
 
+.carousel-addall-added {
+    margin-left: 1rem;
+    display: flex;
+    height: 30px;
+    align-items: end;
+}
+
 .carousel-addall-container {
     width: 370px;
     height: 30px;
@@ -29,7 +36,7 @@
     cursor: pointer;
 }
 
-.carousel-addall-container > p {
+.carousel-addall-container > p, .carousel-addall-added {
     color: rgb(255, 255, 255, 0.6);
     font-size: 1rem;
 }
@@ -84,7 +91,7 @@
 .carousel-left-button, .carousel-right-button {
     position: absolute;
     width: 4%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 2;
     cursor: pointer;
 }

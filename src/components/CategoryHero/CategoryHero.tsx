@@ -6,7 +6,7 @@ const CategoryHero = ({ category }: { category: string }) => {
   let title = "";
   let description = "";
   // let imageURL = "";
-  // let image = ImageDir.Kern[0];
+  let image = ImageDir.Kern[0];
   // let image = CILarge;
 
   switch (category) {

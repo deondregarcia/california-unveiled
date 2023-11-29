@@ -71,17 +71,3 @@
     fill: white;
     stroke: white;
 }
-
-.profile-icon-wrapper {
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    background-color: var(--highlight-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-icon-wrapper:hover {
-    background-color: white;
-}

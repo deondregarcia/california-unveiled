@@ -11,7 +11,6 @@ import Sightseeing from "./pages/Sightseeing/Sightseeing";
 import Nature from "./pages/Nature/Nature";
 import TypicalTourist from "./pages/TypicalTourist/TypicalTourist";
 import HiddenGems from "./pages/HiddenGems/HiddenGems";
-import MyAccount from "./pages/MyAccount/MyAccount";
 import MyList from "./pages/MyList/MyList";
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
         <Route path="/nature" element={<Nature />} />
         <Route path="/typical-tourist" element={<TypicalTourist />} />
         <Route path="/hidden-gems" element={<HiddenGems />} />
-        <Route path="/my-account" element={<MyAccount />} />
         <Route path="/my-list" element={<MyList />} />
       </Routes>
     </>
