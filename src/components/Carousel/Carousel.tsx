@@ -1,4 +1,4 @@
-import React, { memo, useState, useContext, useEffect } from "react";
+import React, { memo, useState, useContext, useEffect, useRef } from "react";
 import "./Carousel.css";
 
 import { CountyObjectLoader } from "../../assets/CountyObjectLoader";
@@ -23,6 +23,9 @@ const Carousel = ({
     [number, number]
   >([0, 0]); // [carousel index, carousel translation]
   const [startingX, setStartingX] = useState(0);
+
+  // ref of carousel-container div, to grab length later (used for the mobile section only)
+  const carouselContainerRef = useRef<HTMLDivElement>(null);
 
   const [cardClicked, setCardClicked] = useState(false);
   const [modalObjectInfo, setModalObjectInfo] = useState<CountyObjectType>({
@@ -127,6 +130,32 @@ const Carousel = ({
       let [idx, oldTranslation] = prev;
 
       let deltaTranslation = e.touches[0].clientX - startingX;
+
+      // prevent from being dragged past left end of carousel
+      if (oldTranslation + deltaTranslation > 0) {
+        return [idx, 0];
+      }
+
+      // prevent from being dragged past right end of carousel
+      if (carouselContainerRef.current?.offsetWidth) {
+        if (
+          oldTranslation + deltaTranslation <
+          -1 *
+            (carouselContainerRef.current?.offsetWidth -
+              window.innerWidth +
+              2 * carouselMargin)
+        ) {
+          return [
+            idx,
+            -1 *
+              (carouselContainerRef.current?.offsetWidth -
+                window.innerWidth +
+                2 * carouselMargin),
+          ];
+        }
+      }
+
+      // console.log(carouselContainerRef.current?.offsetWidth);
 
       return [idx, oldTranslation + deltaTranslation];
     });
@@ -353,6 +382,7 @@ const Carousel = ({
               className="carousel-container"
               onTouchStart={handleDragStart}
               onTouchMove={handleDrag}
+              ref={carouselContainerRef}
               style={{
                 transform: `translateX(${carouselTranslation[1]}px)`,
                 marginLeft: `${carouselMargin}px`,

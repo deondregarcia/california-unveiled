@@ -23,6 +23,7 @@
     margin-left: 1rem;
     display: flex;
     height: 30px;
+    width: 370px;
     align-items: end;
 }
 
@@ -180,5 +181,23 @@
     }
     .carousel-card {
         transform: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel-outer-wrapper {
+        height: 220px;
+    }
+    .carousel-header {
+        flex-direction: column;
+        align-items:flex-start;
+    }
+    .carousel-header > h1 {
+        font-size: 1.8rem;
+        /* background-color: red; */
+    }
+    .carousel-addall-container, .carousel-addall-added {
+        height: 20px;
+        margin-left: 0rem;
     }
 }

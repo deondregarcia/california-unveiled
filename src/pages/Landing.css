@@ -2,6 +2,13 @@
     margin-top: 100px;
 }
 
+.landing-container > h1 {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 3rem;
+  text-align: center;
+  color: var(--highlight-color);
+}
+
 .landing-container > p {
   text-align: center;
 }
@@ -20,11 +27,9 @@
   bottom: 3%;
 }
 
-.county-overview-container > h1 {
-  font-family: 'Love Ya Like A Sister', cursive;
-  font-size: 50px;
+.county-overview-container > h3 {
   text-align: center;
-  color: var(--highlight-color);
+  font-size: 1.6rem;
 }
 
 .county-overview-container > p {
@@ -57,11 +62,11 @@
 }
 
 .overview-image {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   object-fit: cover;
   border: solid 5px rgba(0, 0, 0, 1);
-  border-radius: 50%;
+  border-radius: 20%;
   margin-top: 120px;
 }
 
@@ -97,25 +102,47 @@
   height: 600px; */
   width: 65vw;
   margin-right: 20px;
-  /* background-color: red; */
   overflow: visible;
   
 }
 
 @media screen and (max-width: 500px) {
+  .landing-container {
+    margin-top: 70px;
+  }
+
+  .landing {
+    flex-direction: column-reverse;
+    margin-bottom: 180px;
+  }
+
+  .county-overview-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    left: 0;
+  }
+
   .overview-images-container {
+    width: 80%;
+    height: 100px;
     justify-content: space-around;
-}
-.overview-image {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-top: 15px;
-}
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .overview-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 30px;
+  }
   .map-container {
       width: 400px;
-      height: 250px;
+      height: 200px;
       margin: auto;
   }
 }
