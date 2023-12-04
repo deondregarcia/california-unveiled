@@ -3,8 +3,8 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
+    align-items: start;
+    padding: 15px 40px;
     background-color: rgb(4, 4, 4);
     position: fixed;
     top: 0;
@@ -70,4 +70,91 @@
 .list-icon:hover {
     fill: white;
     stroke: white;
+}
+
+.navbar-menu {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar-container {
+        transition: height 500ms ease-in-out;
+    }
+    .navbar-container-mobile-selected {
+        height: 100%;
+        transition: height 500ms ease-in-out;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        padding: 15px 40px;
+        background-color: rgb(4, 4, 4);
+        position: fixed;
+        top: 0;
+        z-index: 4;
+        border-bottom: 1px solid var(--highlight-color);
+    }
+    .navbar-links-container {
+        display: none;
+        opacity: 0;
+    }
+    .navbar-links-container-mobile-selected {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: navbar-links-fade-in 1000ms ease-in-out;
+        display: flex;
+    }
+    .navbar-links-container-mobile-selected > ul {
+        list-style: none;
+    }
+    .navbar-link, .navbar-link:hover {
+        border-bottom: 0px solid black;
+    }
+    .navbar-link-text {
+        font-size: 24px;
+    }
+    .navbar-menu {
+        display: block;
+        fill: var(--highlight-color);
+        height: 3rem;
+        width: 3rem;
+    }
+    .navbar-right {
+        display: none;
+    }
+    .navbar-right-mobile-selected {
+        display: block;
+        animation: navbar-links-fade-in 1000ms ease-in-out;
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .list-icon-wrapper {
+        display: flex;
+        width: 150px;
+        justify-content: start;
+    }
+    .list-icon-wrapper > h1 {
+        margin-left: 20px;
+        font-size: 24px;
+    }
+    .list-icon {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@keyframes navbar-links-fade-in {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
